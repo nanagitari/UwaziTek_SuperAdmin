@@ -1,0 +1,9 @@
+main {
+    background-image: url('/assets/background-image.jpg');
+    background-color: rgb(77, 73, 80);
+    padding: 100px;
+    size-adjust: auto;
+}
+h1 {
+    text-align: center;
+}
