@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router'; 
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { LoginComponent } from './login';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 export const routes: Routes = [
-    {path:'',redirectTo:'/login',pathMatch:'full'},
     {path:'login',component:LoginComponent},
-    {path:'forgot password',component:ResetPasswordComponent},
+    {path:'signup',component:SignupComponent},
+    {path:'resetpassword',component:ResetpasswordComponent},
+    // {path:'',redirectTo:'/login',pathMatch:'full'},
 ];
 
 @NgModule({
@@ -18,4 +20,4 @@ export const routes: Routes = [
 
 
 
-export class AppRoutingModule { }
+export class AppRoutingModule { };

@@ -1,26 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { RouterModule } from '@angular/router';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from './login';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, ResetPasswordComponent],
-  template: `
-  <main>
-      <header class="brand-name">
-      <h1> UWAZITEK </h1>
-      </header>
-      <section class="content">
-      <h2> Login Page </h2>
-        <app-login></app-login>
-      </section>
-    </main>
-  `,
-  
+  imports: [LoginComponent,ReactiveFormsModule,SignupComponent,RouterModule,ResetpasswordComponent,RouterOutlet],
+  templateUrl:'./app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'uwazitek';
 }
+
+
+export class AppModule {}

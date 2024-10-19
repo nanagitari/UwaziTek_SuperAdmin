@@ -10,7 +10,7 @@ body {
 }
 
 .login-container {
-    background: #352672;
+    background: #7d6cc9;
     padding: 50px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,10 +59,22 @@ button:hover {
     border-radius: 4px;
     display: none; 
 }
-#forget {
+a {
+    font-weight: 300;
+    font-size: italic;
+
+}
+a:hover{
     text-align: center;
     font-size: medium;
+    font-weight: 100;
+    color: rgb(20, 19, 19);
 }
+.login-image{
+    padding: 45%;
+    border-radius: 5px;
+}
+
 
   
   
