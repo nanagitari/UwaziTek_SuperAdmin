@@ -41,11 +41,11 @@
             <a routerLink="/signup">Signup</a>
             <br>
             <p>Forgot your password</p>
-            <a routerLink="/reset-password">Reset Password</a>
+            <a routerLink="/resetpassword">Reset Password</a>
           </nav>
           <div  id="form-feedback">
            <div *ngIf="loginError" class="error-message">{{loginError}}</div>
-           <div *ngIf="loginSuccess" class="succes-message">{{loginSuccess}}</div>
+           <div *ngIf="loginSuccess" class="success-message">{{loginSuccess}}</div>
           </div>
         </form>
     </section>
