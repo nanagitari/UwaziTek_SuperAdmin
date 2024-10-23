@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormGroup,FormBuilder,FormControl,Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,5 +11,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './resetpassword.component.css'
 })
 export class ResetpasswordComponent {
+resetForm!: FormGroup;
+onSubmit() {
+throw new Error('Method not implemented.');
+}
 
 }
