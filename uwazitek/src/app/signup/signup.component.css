@@ -1,9 +1,10 @@
 h2 {
+    position: center;
     color:blue;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .signup-container {
-    background: #7d6cc9;
+    background: #afa3e4;
     padding: 50px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -38,4 +39,10 @@ button {
     width: 50%;
     box-sizing: border-box;
     transition: background-color 0.3s ease;
+}
+#logo-image{
+    height: 90px;
+}
+body{
+    background-color: #c6beeb;
 }

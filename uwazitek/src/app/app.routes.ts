@@ -3,14 +3,14 @@ import { RouterModule,Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard/admin-dashboard.component';
 
 
 export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'signup',component:SignupComponent},
     {path:'resetpassword',component:ResetpasswordComponent},
-      {path:'dashboard',component:DashboardComponent},
+    {path:'admin-dashboard', component:AdminDashboardComponent},
     {path:'',redirectTo:'/login',pathMatch:'full'},
 ];
 
