@@ -8,13 +8,14 @@ import { importProvidersFrom } from '@angular/core';
 import { AdminDashboardModule } from './app/admin-dashboard/admin-dashboard.module';
 
 
+
 bootstrapApplication(AppComponent,{
   providers: [
     importProvidersFrom(
       HttpClientModule,
-      AdminDashboardModule
+      AdminDashboardModule,
     ),
-    provideRouter(routes)
+    provideRouter(routes), provideAnimationsAsync()
   ]
 ,
 })
