@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserHospitalComponent } from './hospital/user-hospital.component';
 import { UserInsuranceComponent } from './insurance/user-insurance.component';
-import { AddUserPageComponent } from './add-user-page/add-user-page.component';
+import { AddUserPageComponent } from './add-user-page.component';
 
 
 

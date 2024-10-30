@@ -1,0 +1,43 @@
+#logo-image{
+    height: 100px;
+
+}
+.main-container{
+  background-color: aquamarine;
+  height: fit-content;
+  display: flex;
+}
+.content div{
+  display: flex;
+  background-color: beige;
+}
+.navbar{
+  justify-content: flex-start;
+  align-items: center;
+  background-color: aqua;
+  width: max-content;
+
+}
+.navbar div{
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .my-icon {
+    font-size: 2rem;
+    color: blue;
+  }
+  
+  .icon-label {
+    font-size: 0.875rem;
+    color: #555;
+    
+  }
+  .content{
+    overflow-y: auto;
+    flex:1;
+    padding: 1rem;
+  }
+  

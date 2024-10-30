@@ -1,29 +1,34 @@
 <header class="brand-name">
     <img src="assets/logo.png" alt="" srcset="" id="logo-image">
 </header>
-<section class="admin-dashboard">
-<div id="home-icon">
+<div class="main-container">
+<nav class="navbar">
+<div >
 <lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home"></lucide-icon>
 <span class="icon-label">Home</span>
 </div>
-<div id="Settings-icon">
+<div>
 <lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"></lucide-icon>
 <span class="icon-label">Settings</span>
 </div>
-<div id="plus-icon">
-<lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users" (click)="navigateToAddUser()"></lucide-icon>
-<span class="icon-label">Add users</span>
+<div >
+<lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users" (click)="onclick('add-user-page')"></lucide-icon>
+<span class="icon-label">Add users</span>  
 </div>
-<div id="üser-icon">
+<div >
 <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
 <span class="icon-label">User Verification</span>
 </div>
-<div id="logout-icon">
+<div>
     <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out"></lucide-icon>
     <span class="icon-label">Log Out</span>
 </div>
-<div id="activity-icon">
+<div>
     <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity"></lucide-icon>
     <span class="icon-label">Activity</span>
 </div>
-</section>
+</nav>
+<div class="content">
+<app-add-user-page *ngIf="usertype==='add-user-page'"></app-add-user-page>
+</div>
+</div>

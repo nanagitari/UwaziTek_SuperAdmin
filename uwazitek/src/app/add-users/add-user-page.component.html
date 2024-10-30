@@ -1,0 +1,13 @@
+<p> User page</p>
+<div class="main-container">
+<nav class="user-nav">
+    <button (click)="onclick('hospital')">Add Hospital</button>
+    <button (click)="onclick('insurance')">Add Insurance</button>
+    <button (click)="onclick('')">View Users</button>
+  </nav>
+  <div class="content">
+    <app-user-hospital *ngIf="usertype===('hospital')"></app-user-hospital>
+    <app-user-insurance *ngIf="usertype===('insurance')"></app-user-insurance>
+  </div>
+  </div>
+  
