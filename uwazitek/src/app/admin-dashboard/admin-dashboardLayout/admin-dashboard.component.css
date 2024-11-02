@@ -4,15 +4,14 @@
 }
 .main-container{
   background-color: aquamarine;
-  height: fit-content;
+  height: auto;
   display: flex;
 }
 .content div{
   display: flex;
-  background-color: beige;
+  background-color: rgb(105, 194, 235);
 }
 .navbar{
-  justify-content: flex-start;
   align-items: center;
   background-color: aqua;
   width: max-content;

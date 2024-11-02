@@ -1,10 +1,11 @@
+
 <header class="brand-name">
-    <img src="assets/logo.png" alt="" srcset="" id="logo-image">
 </header>
 <div class="main-container">
 <nav class="navbar">
+    <img src="assets/logo.png" alt="" srcset="" id="logo-image">
 <div >
-<lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home"></lucide-icon>
+<lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home" (click)="onclick('home-layout')"></lucide-icon>
 <span class="icon-label">Home</span>
 </div>
 <div>
@@ -30,5 +31,6 @@
 </nav>
 <div class="content">
 <app-add-user-page *ngIf="usertype==='add-user-page'"></app-add-user-page>
+<app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
 </div>
 </div>

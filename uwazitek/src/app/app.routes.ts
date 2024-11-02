@@ -7,20 +7,23 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboardLayout
 import { AddUserPageComponent } from './add-users/add-user-page.component';
 import { UserHospitalComponent } from './add-users/hospital/user-hospital.component';
 import { UserInsuranceComponent } from './add-users/insurance/user-insurance.component';
+import { HomeLayoutComponent } from './home/home-layout/home-layout.component';
 
 export const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'signup',component:SignupComponent},
     {path:'resetpassword',component:ResetpasswordComponent},
-    {path:'admin-dashboard', component:AdminDashboardComponent},
     {path:'',redirectTo:'/login',pathMatch:'full'},
+    {path:'admin-dashboard', component:AdminDashboardComponent},
+    {path:'home', component: HomeLayoutComponent},
     {path:'add-users', component: AddUserPageComponent,
     children:[
         {path:'hospital', component:UserHospitalComponent},
         {path:'insurance',component:UserInsuranceComponent},]},
-    {path:'hospital',component:UserHospitalComponent},
+    {path:'hospital',component: UserHospitalComponent},
     {path:'insurance', component:UserInsuranceComponent},
-    {path:'',redirectTo:'/admin-dashboard',pathMatch:'full'}
+    {path:'',redirectTo:'/home',pathMatch:'full'},
+
 ];
 
 @NgModule({

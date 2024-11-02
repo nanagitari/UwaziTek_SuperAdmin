@@ -5,21 +5,21 @@
   
       <div class="form-group">
         <div>
-        <label for="hospitalBranch">Hospital Branch</label>
+        <label for="hospitalBranch">Hospital Branch :</label>
         <input type="text" id="hospitalBranch" formControlName="hospitalBranch" required />
         <div *ngIf="hospitalForm.get('hospitalBranch')?.invalid && hospitalForm.get('hospitalBranch')?.touched" class="error">
           Hospital name is required.
         </div>
       </div>
         <div>
-        <label for="hospitalName">Hospital Name</label>
+        <label for="hospitalName">Hospital Name :</label>
         <input type="text" id="hospitalName" formControlName="hospitalName" required />
         <div *ngIf="hospitalForm.get('hospitalName')?.invalid && hospitalForm.get('hospitalName')?.touched" class="error">
           Hospital name is required.
         </div>
       </div>
       <div>
-        <label for="address">Address</label>
+        <label for="address">Address :</label>
         <textarea id="address" formControlName="address" required></textarea>
         <div *ngIf="hospitalForm.get('address')?.invalid && hospitalForm.get('address')?.touched" class="error">
           Address is required.
