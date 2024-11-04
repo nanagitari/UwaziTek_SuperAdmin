@@ -1,0 +1,56 @@
+
+.dialog-container {
+    padding: 20px;
+    background-color: rgb(98, 123, 235);
+    border-radius: 30px;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .dialog-container h1[mat-dialog-title] {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .dialog-container div[mat-dialog-content] {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+
+  .dialog-container div[mat-dialog-actions] {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+
+  button.mat-button {
+    min-width: 100px;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #ffffff;
+  }
+  
+  
+  button.mat-button {
+    background-color: #1976d2; 
+  }
+  
+  button.mat-button:hover {
+    background-color: #1565c0;
+  }
+  
+  button.mat-button.cancel {
+    background-color: #f44336; 
+  }
+  
+  button.mat-button.cancel:hover {
+    background-color: #d32f2f;
+  }
+  

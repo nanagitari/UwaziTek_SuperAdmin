@@ -8,29 +8,30 @@
 <lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home" (click)="onclick('home-layout')"></lucide-icon>
 <span class="icon-label">Home</span>
 </div>
+<div >
+    <lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users" (click)="onclick('add-user-page')"></lucide-icon>
+    <span class="icon-label">Add users</span>  
+    </div>
+<div >
+ <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
+<span class="icon-label">User Verification</span>
+</div> 
+<div>
+    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity"></lucide-icon>
+    <span class="icon-label">Activity</span>
+</div> 
 <div>
 <lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"></lucide-icon>
 <span class="icon-label">Settings</span>
 </div>
-<div >
-<lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users" (click)="onclick('add-user-page')"></lucide-icon>
-<span class="icon-label">Add users</span>  
-</div>
-<div >
-<lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
-<span class="icon-label">User Verification</span>
-</div>
 <div>
-    <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out"></lucide-icon>
+    <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out" (click)="openLogoutDialog()"></lucide-icon>
     <span class="icon-label">Log Out</span>
-</div>
-<div>
-    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity"></lucide-icon>
-    <span class="icon-label">Activity</span>
 </div>
 </nav>
 <div class="content">
 <app-add-user-page *ngIf="usertype==='add-user-page'"></app-add-user-page>
 <app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
+<app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
 </div>
 </div>

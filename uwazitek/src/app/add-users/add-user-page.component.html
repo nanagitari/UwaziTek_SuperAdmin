@@ -3,11 +3,12 @@
 <nav class="user-nav">
     <button (click)="onclick('hospital')">Add Hospital</button>
     <button (click)="onclick('insurance')">Add Insurance</button>
-    <button (click)="onclick('')">View Users</button>
+    <button (click)="onclick('view-users')">View Users</button>
   </nav>
   <div class="content">
     <app-user-hospital *ngIf="usertype===('hospital')"></app-user-hospital>
     <app-user-insurance *ngIf="usertype===('insurance')"></app-user-insurance>
+    <app-view-users *ngIf="usertype===('view-users')"></app-view-users>
   </div>
   </div>
   

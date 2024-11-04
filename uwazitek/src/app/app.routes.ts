@@ -8,6 +8,9 @@ import { AddUserPageComponent } from './add-users/add-user-page.component';
 import { UserHospitalComponent } from './add-users/hospital/user-hospital.component';
 import { UserInsuranceComponent } from './add-users/insurance/user-insurance.component';
 import { HomeLayoutComponent } from './home/home-layout/home-layout.component';
+import { ViewUsersComponent } from './add-users/view-users/view-users.component';
+import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
+
 
 export const routes: Routes = [
     {path:'login',component:LoginComponent},
@@ -22,7 +25,9 @@ export const routes: Routes = [
         {path:'insurance',component:UserInsuranceComponent},]},
     {path:'hospital',component: UserHospitalComponent},
     {path:'insurance', component:UserInsuranceComponent},
-    {path:'',redirectTo:'/home',pathMatch:'full'},
+    {path:'view-user', component:ViewUsersComponent},
+    {path:'logout-dialog', component:LogoutDialogComponent}
+    
 
 ];
 
