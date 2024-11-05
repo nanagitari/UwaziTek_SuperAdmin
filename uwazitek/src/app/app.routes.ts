@@ -10,6 +10,12 @@ import { UserInsuranceComponent } from './add-users/insurance/user-insurance.com
 import { HomeLayoutComponent } from './home/home-layout/home-layout.component';
 import { ViewUsersComponent } from './add-users/view-users/view-users.component';
 import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
+import { ActivityComponent } from './activity/activity.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UserVerificationComponent } from './user-verification/user-verification.component';
+import { SecuritySettingsComponent } from './settings/security-settings/security-settings.component';
+import { SystemPreferenceComponent } from './settings/system-preference/system-preference.component';
+import { UserManagementComponent } from './settings/user-management/user-management.component';
 
 
 export const routes: Routes = [
@@ -26,7 +32,16 @@ export const routes: Routes = [
     {path:'hospital',component: UserHospitalComponent},
     {path:'insurance', component:UserInsuranceComponent},
     {path:'view-user', component:ViewUsersComponent},
-    {path:'logout-dialog', component:LogoutDialogComponent}
+    {path:'logout-dialog', component:LogoutDialogComponent},
+    {path:'activity', component:ActivityComponent},
+    {path:'settings', component: SettingsComponent,
+    children:[
+        {path:'security-settings', component:SecuritySettingsComponent},
+        {path:'system-preference', component:SystemPreferenceComponent},
+        {path:'User-management', component:UserManagementComponent}
+    ]
+    },
+    {path:'user-verification', component: UserVerificationComponent}
     
 
 ];

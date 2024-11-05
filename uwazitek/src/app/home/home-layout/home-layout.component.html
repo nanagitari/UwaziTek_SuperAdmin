@@ -4,16 +4,13 @@
         <div class="logo">SuperAdmin Dashboard</div>
       
         <div class="header-actions">
-          <!-- Notification Icon -->
           <div class="notification-icon" (click)="toggleNotifications()">
             <lucide-icon [img]="BellIcon" class="icon" aria-label="Notifications"></lucide-icon>
             <span class="badge" *ngIf="notificationCount > 0">{{ notificationCount }}</span>
           </div>
-          <!-- Profile Icon or other header actions can go here -->
         </div>
       </header>
       
-      <!-- Notifications Dropdown Panel -->
       <div class="notifications-panel" *ngIf="showNotifications">
         <h3>Notifications</h3>
         <ul>

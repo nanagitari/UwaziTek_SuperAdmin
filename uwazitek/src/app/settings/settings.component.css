@@ -1,0 +1,13 @@
+.main-container {
+    padding: 5px;
+    display:grid;
+    
+  }
+  
+  .settings-tab {
+    margin-bottom: 20px;
+    background-color: brown;
+    height: fit-content;
+    
+  }
+  

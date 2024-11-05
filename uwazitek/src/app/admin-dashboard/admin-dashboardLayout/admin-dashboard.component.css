@@ -6,6 +6,7 @@
   background-color: aquamarine;
   height: auto;
   display: flex;
+  
 }
 .content div{
   display: flex;
@@ -15,13 +16,14 @@
   align-items: center;
   background-color: aqua;
   width: max-content;
+  cursor:pointer;
 
 }
 .navbar div{
     display: flex;
     gap: 1rem;
     padding: 1.5rem;
-    cursor: pointer;
+  
   }
   
   .my-icon {
@@ -32,6 +34,7 @@
   .icon-label {
     font-size: 0.875rem;
     color: #555;
+
     
   }
   .content{

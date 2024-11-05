@@ -1,14 +1,16 @@
 <p> User page</p>
 <div class="main-container">
 <nav class="user-nav">
-    <button (click)="onclick('hospital')">Add Hospital</button>
-    <button (click)="onclick('insurance')">Add Insurance</button>
-    <button (click)="onclick('view-users')">View Users</button>
-  </nav>
-  <div class="content">
-    <app-user-hospital *ngIf="usertype===('hospital')"></app-user-hospital>
-    <app-user-insurance *ngIf="usertype===('insurance')"></app-user-insurance>
-    <app-view-users *ngIf="usertype===('view-users')"></app-view-users>
-  </div>
-  </div>
-  
+  <mat-tab-group>
+    <mat-tab label="Add Hospital">
+      <app-user-hospital></app-user-hospital>
+    </mat-tab>
+    <mat-tab label="Add Insurance">
+      <app-user-insurance></app-user-insurance>
+    </mat-tab>
+    <mat-tab label="View users">
+      <app-view-users></app-view-users>
+    </mat-tab>
+  </mat-tab-group>
+</nav>
+</div>

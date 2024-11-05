@@ -2,7 +2,7 @@
 <header class="brand-name">
 </header>
 <div class="main-container">
-<nav class="navbar">
+<nav (click)="handleIconClick()"class="navbar">
     <img src="assets/logo.png" alt="" srcset="" id="logo-image">
 <div >
 <lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home" (click)="onclick('home-layout')"></lucide-icon>
@@ -13,15 +13,15 @@
     <span class="icon-label">Add users</span>  
     </div>
 <div >
- <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
+ <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification" (click)="onclick('user-verification')"></lucide-icon>
 <span class="icon-label">User Verification</span>
 </div> 
 <div>
-    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity"></lucide-icon>
+    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity" (click)="onclick('activity')"></lucide-icon>
     <span class="icon-label">Activity</span>
 </div> 
 <div>
-<lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"></lucide-icon>
+<lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"(click)="onclick('settings')"></lucide-icon>
 <span class="icon-label">Settings</span>
 </div>
 <div>
@@ -33,5 +33,8 @@
 <app-add-user-page *ngIf="usertype==='add-user-page'"></app-add-user-page>
 <app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
 <app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
+<app-activity *ngIf="usertype==='activity'"></app-activity>
+<app-settings *ngIf="usertype==='settings'"></app-settings>
+<app-user-verification *ngIf="usertype==='user-verification'"></app-user-verification>
 </div>
 </div>
