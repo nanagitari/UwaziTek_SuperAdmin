@@ -5,11 +5,12 @@ import { SystemPreferenceComponent } from './system-preference/system-preference
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [CommonModule, MatTabsModule, SecuritySettingsComponent, UserManagementComponent,SystemPreferenceComponent],
+  imports: [CommonModule, MatTabsModule, MatButtonModule, SecuritySettingsComponent, UserManagementComponent,SystemPreferenceComponent],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })

@@ -3,18 +3,18 @@
 
 }
 .main-container{
-  background-color: aquamarine;
+  background-color: rgb(217, 243, 234);
   height: auto;
   display: flex;
   
 }
 .content div{
   display: flex;
-  background-color: rgb(105, 194, 235);
+  background-color: rgb(233, 243, 248);
 }
 .navbar{
   align-items: center;
-  background-color: aqua;
+  background-color: rgb(232, 232, 233);
   width: max-content;
   cursor:pointer;
 
@@ -28,18 +28,19 @@
   
   .my-icon {
     font-size: 2rem;
-    color: blue;
+    color: rgb(24, 24, 26);
   }
   
   .icon-label {
     font-size: 0.875rem;
-    color: #555;
+    color: #0e0c0c;
+    font-style: bold;
 
     
   }
   .content{
     overflow-y: auto;
+    overflow-x: auto;
     flex:1;
-    padding: 1rem;
   }
   

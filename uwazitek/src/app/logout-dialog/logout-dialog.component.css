@@ -1,7 +1,7 @@
 
 .dialog-container {
     padding: 20px;
-    background-color: rgb(98, 123, 235);
+    background-color: rgb(67, 90, 221);
     border-radius: 30px;
     max-width: 400px;
     margin: auto;
@@ -9,16 +9,17 @@
   
   .dialog-container h1[mat-dialog-title] {
     font-size: 24px;
-    color: #333;
+    color: #111010;
     margin-bottom: 15px;
     text-align: center;
   }
   
   .dialog-container div[mat-dialog-content] {
     font-size: 16px;
-    color: #555;
+    color: #4b484871;
     text-align: center;
     margin-bottom: 20px;
+    font-weight: bold;
   }
   
 
@@ -39,7 +40,7 @@
   
   
   button.mat-button {
-    background-color: #1976d2; 
+    background-color: #3545d6; 
   }
   
   button.mat-button:hover {

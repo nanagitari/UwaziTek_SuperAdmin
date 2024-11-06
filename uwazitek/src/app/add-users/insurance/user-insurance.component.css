@@ -1,8 +1,8 @@
-.hospital-form-container {
+.insurance-form-container {
     max-width: 500px;
     margin: auto;
     padding: 1rem;
-    background-color: #67ebe0a9;
+    background-color: #e9e4e4;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -46,7 +46,7 @@
     cursor: pointer;
   }
   button:disabled {
-    background-color: #ccc;
+    background-color: #4ce0e679;
     cursor: not-allowed;
   }
   
