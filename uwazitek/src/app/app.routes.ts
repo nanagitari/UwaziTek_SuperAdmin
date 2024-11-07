@@ -16,6 +16,8 @@ import { UserVerificationComponent } from './user-verification/user-verification
 import { SecuritySettingsComponent } from './settings/security-settings/security-settings.component';
 import { SystemPreferenceComponent } from './settings/system-preference/system-preference.component';
 import { UserManagementComponent } from './settings/user-management/user-management.component';
+import { ClaimReportsComponent } from './activity/claim-reports/claim-reports.component';
+import { CurrentUsersComponent } from './activity/current-users/current-users.component';
 
 
 export const routes: Routes = [
@@ -33,7 +35,12 @@ export const routes: Routes = [
     {path:'insurance', component:UserInsuranceComponent},
     {path:'view-user', component:ViewUsersComponent},
     {path:'logout-dialog', component:LogoutDialogComponent},
-    {path:'activity', component:ActivityComponent},
+    {path:'activity', component:ActivityComponent,
+        children:[
+            {path:'claim-report', component:ClaimReportsComponent},
+            {path:'current-users', component:CurrentUsersComponent}
+        ]
+    },
     {path:'settings', component: SettingsComponent,
     children:[
         {path:'security-settings', component:SecuritySettingsComponent},

@@ -16,7 +16,7 @@ import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-de
     RouterModule,
     CommonModule,
     MatButtonModule,
-    MatDialogModule, // Ensure this is imported to use MatDialog.
+    MatDialogModule,
     EditUserDialogComponent,
     ConfirmDeleteDialogComponent
   ],

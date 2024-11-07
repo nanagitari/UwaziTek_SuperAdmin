@@ -1,0 +1,26 @@
+/* Apply to the tab header for blue background */
+::ng-deep .mat-tab-group .mat-tab-labels {
+    background-color: #007bff; /* Blue background color */
+    color: #ffffff; /* White text color for better contrast */
+  }
+  
+  /* Optional: Style individual tabs with blue active and white inactive text */
+  ::ng-deep .mat-tab-group .mat-tab-label {
+    color: #5261e2; /* White color for all tabs */
+  }
+  
+  ::ng-deep .mat-tab-group .mat-tab-label-active {
+    color: #7f95a3; /* White color for active tab */
+  }
+  
+  /* Style the tab content area for a white background */
+  ::ng-deep .mat-tab-group .mat-tab-body-content {
+    background-color: #187086; 
+    padding: 16px; 
+  }
+  
+ 
+  .main-container {
+    padding: 16px;
+  }
+  

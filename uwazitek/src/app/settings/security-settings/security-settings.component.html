@@ -1,2 +1,12 @@
-
-<p>Configure password policies, 2FA, and login restrictions.</p>
+<p>Visibilty settings.</p>
+<p> is really visible</p>
+<div *ngFor="let report of reports">
+    <div class="report-item">
+      <p>{{ report.name }}</p>
+      <label>
+        <input type="checkbox" [(ngModel)]="report.visibility" (change)="onVisibilityChange(report)" />
+        Allow visibility for other portals
+      </label>
+    </div>
+  </div>
+  

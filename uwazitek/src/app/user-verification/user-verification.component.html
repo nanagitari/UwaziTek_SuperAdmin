@@ -1,1 +1,25 @@
-<p>user-verification works!</p>
+
+<table class="user-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.status }}</td>
+        <td>
+          <button (click)="approveUser(user)" class="approve-btn">Approve</button>
+          <button (click)="rejectUser(user)" class="reject-btn">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

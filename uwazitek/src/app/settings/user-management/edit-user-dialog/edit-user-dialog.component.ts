@@ -9,7 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @Component({
   selector: 'app-edit-user-dialog',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule, CommonModule,MatFormFieldModule, MatDialogActions,MatDialogContent],
+  imports: [ ReactiveFormsModule,FormsModule,
+     CommonModule,MatFormFieldModule, MatDialogActions,MatDialogContent],
   templateUrl: './edit-user-dialog.component.html',
   styleUrl: './edit-user-dialog.component.css'
 })

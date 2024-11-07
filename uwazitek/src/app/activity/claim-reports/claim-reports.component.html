@@ -1,0 +1,27 @@
+<p>claim-reports works!</p>
+
+<h2>Claim Reports</h2>
+<table class="claim-table">
+  <thead>
+    <tr>
+      <th>Report ID</th>
+      <th>Patient Name</th>
+      <th>Hospital</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let report of claimReports">
+      <td>{{ report.id }}</td>
+      <td>{{ report.patientName }}</td>
+      <td>{{ report.hospital }}</td>
+      <td>{{ report.amount | currency }}</td>
+      <td>{{ report.status }}</td>
+      <td>
+        <button (click)="sendToInsurance(report)" [disabled]="report.status === 'Sent'">Send to Insurance</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

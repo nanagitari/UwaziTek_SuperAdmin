@@ -1,0 +1,31 @@
+/* user-verification.component.css */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th, .user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .user-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .approve-btn {
+    color: #fff;
+    background-color: green;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .reject-btn {
+    color: #fff;
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
