@@ -43,4 +43,8 @@
     overflow-x: auto;
     flex:1;
   }
+  button:hover, .selected {
+    background-color: rgb(23, 23, 223);
+    color: #007bff; 
+  }
   

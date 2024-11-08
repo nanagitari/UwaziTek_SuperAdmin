@@ -5,28 +5,30 @@
 <nav (click)="handleIconClick()"class="navbar">
     <img src="assets/logo.png" alt="" srcset="" id="logo-image">
 <div >
-<lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home" (click)="onclick('home-layout')"></lucide-icon>
-<span class="icon-label">Home</span>
+<lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home" ></lucide-icon>
+<span class="icon-label" (click)="onclick('home-layout')">Home</span>
 </div>
 <div >
-    <lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users" (click)="onclick('add-user-page')"></lucide-icon>
-    <span class="icon-label">Add users</span>  
+    <lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users"></lucide-icon>
+    <span class="icon-label"(click)="onclick('add-user-page')">Add users</span>  
+</div>
+<div >
+ <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
+<span class="icon-label" (click)="onclick('user-verification')">User Verification</span>
+</div>
+<div>
+    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity"> </lucide-icon>
+    <span class="icon-label" (click)="onclick('activity')">Activity</span>
+</div> 
+<div>
+<lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"></lucide-icon>
+<span class="icon-label"(click)="onclick('settings')">Settings</span>
     </div>
-<div >
- <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification" (click)="onclick('user-verification')"></lucide-icon>
-<span class="icon-label">User Verification</span>
-</div> 
 <div>
-    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity" (click)="onclick('activity')"></lucide-icon>
-    <span class="icon-label">Activity</span>
-</div> 
-<div>
-<lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"(click)="onclick('settings')"></lucide-icon>
-<span class="icon-label">Settings</span>
-</div>
-<div>
-    <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out" (click)="openLogoutDialog()"></lucide-icon>
-    <span class="icon-label">Log Out</span>
+  <button>
+  <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out"></lucide-icon>
+    <span class="icon-label" (click)="openLogoutDialog()">Log Out</span> 
+    </button> 
 </div>
 </nav>
 <div class="content">
@@ -36,5 +38,4 @@
 <app-activity *ngIf="usertype==='activity'"></app-activity>
 <app-settings *ngIf="usertype==='settings'"></app-settings>
 <app-user-verification *ngIf="usertype==='user-verification'"></app-user-verification>
-</div>
 </div>
