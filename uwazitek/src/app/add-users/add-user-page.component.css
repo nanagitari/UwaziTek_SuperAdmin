@@ -3,7 +3,7 @@
     gap: 1rem;
     margin-bottom: 1rem;
     background-color: rgba(35, 47, 221, 0.829);
-    height:fit-content;
+    padding-bottom: 8px;
   }
 .main-container{
   padding: 5px;

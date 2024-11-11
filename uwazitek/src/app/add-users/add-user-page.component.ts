@@ -4,12 +4,14 @@ import { UserHospitalComponent } from './hospital/user-hospital.component';
 import { UserInsuranceComponent } from './insurance/user-insurance.component';
 import { CommonModule } from '@angular/common';
 import { ViewUsersComponent } from "./view-users/view-users.component";
+import { PolicyHolderComponent } from './policy-holder/policy-holder.component';
 import { RouterModule,Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user-page',
   standalone: true,
-  imports: [UserHospitalComponent, UserInsuranceComponent, CommonModule, ViewUsersComponent,MatTabsModule,RouterModule],
+  imports: [UserHospitalComponent,UserInsuranceComponent, CommonModule, ViewUsersComponent,
+    MatTabsModule,RouterModule,PolicyHolderComponent],
   templateUrl: './add-user-page.component.html',
   styleUrl: './add-user-page.component.css'
 })

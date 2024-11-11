@@ -2,20 +2,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Hospital } from '../add-users/hospital/user-hospital.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://your-api-url/api/users'; // Update with your API endpoint
+  private apiUrl = 'https://your-api-url.com/hospita';
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}`);
-  }
-
-  updateUserStatus(userId: number, status: string): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/${userId}`, { status });
+  addHospital(hospital: Hospital): Observable<any> {
+    return this.http.post<any>(this.apiUrl, hospital);
   }
 }

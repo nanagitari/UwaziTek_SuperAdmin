@@ -1,0 +1,25 @@
+<div class="policy-form-container">
+    <form [formGroup]="policyholderForm">
+      <h2>Policy Holder Details</h2>
+  
+      <div class="form-group">
+        <div>
+        <label for="policyholderid">Policy Holder ID :</label>
+        <input type="text" id="policyholderid" ControlName="policyholderid" required />
+        <div *ngIf="policyholderForm.get('policyholderid')?. invalid && policyholderForm.get('policyholderid')?.touched" class="error">
+        </div>
+      </div>
+        <div>
+        <label for="policyholderName">Policy Holder Name :</label>
+        <input type="text" id="policyholderName" formControlName="policyholderName" required />
+        <div *ngIf="policyholderForm.get('policyholderName')?. invalid && policyholderForm.get('policyholderName')?.touched" class="error">
+        </div>
+      </div>
+      <div>
+        <label for="insurancename">Insurance Company :</label>
+        <input type="text"  id="name" formControlName="insurancename" required />
+        <div *ngIf="policyholderForm.get('name')?.invalid && policyholderForm.get('insurancename')?.touched" class="error">  
+        </div>
+      </div>
+      <button type="submit" [disabled]="policyholderForm.invalid">Submit</button>
+      </div>
