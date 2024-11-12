@@ -10,6 +10,12 @@ import { UserService } from '../service/user.service';
   styleUrl: './user-verification.component.css'
 })
 export class UserVerificationComponent {
+rejectUser(_t12: { id: number; name: string; email: string; status: string; }) {
+throw new Error('Method not implemented.');
+}
+approveUser(_t12: { id: number; name: string; email: string; status: string; }) {
+throw new Error('Method not implemented.');
+}
 
   users = [
     { id: 1, name: 'John Doe', email: 'johndoe@example.com', status: 'Pending' },
@@ -21,25 +27,7 @@ export class UserVerificationComponent {
   ngOnInit(): void {
     this.fetchUsers();
   }
-
-  fetchUsers(): void {
-    this.userService.getUsers().subscribe((data: { id: number; name: string; email: string; status: string; }[]) => {
-      this.users = data;
-    });
-  }
-
-  approveUser(user: any): void {
-    user.status = 'Approved';
-    this.userService.updateUserStatus(user.id, 'Approved').subscribe((response: any) => {
-      console.log('User approved:', response);
-    });
-  }
-
-  rejectUser(user: any): void {
-    user.status = 'Rejected';
-    this.userService.updateUserStatus(user.id, 'Rejected').subscribe((response: any) => {
-      console.log('User rejected:', response);
-    });
+  fetchUsers() {
+    throw new Error('Method not implemented.');
   }
 }
-

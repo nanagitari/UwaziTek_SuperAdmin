@@ -1,32 +1,36 @@
 
 <div class="hospital-form-container">
-    <form [formGroup]="hospitalForm">
+    <form [formGroup]="hospitalForm" (ngSubmit)="onSubmit()" >
       <h2>Hospital Details</h2>
   
       <div class="form-group">
         <div>
-        <label for="hospitalBranch">Hospital Branch :</label>
-        <input type="text" id="hospitalBranch" formControlName="hospitalBranch" required />
-        <div *ngIf="hospitalForm.get('hospitalBranch')?.invalid && hospitalForm.get('hospitalBranch')?.touched" class="error">
+        <label for="hospitalbranch">Hospital Branch :</label>
+        <input type="text" id="hospital_branch" formControlName="hospitalbranch" required />
+        <div *ngIf="hospitalForm.get('hospitalbranch')?.invalid && hospitalForm.get('hospitalbranch')?.touched" class="error">
           Hospital name is required.
         </div>
       </div>
         <div>
-        <label for="hospitalName">Hospital Name :</label>
-        <input type="text" id="hospitalName" formControlName="hospitalName" required />
-        <div *ngIf="hospitalForm.get('hospitalName')?.invalid && hospitalForm.get('hospitalName')?.touched" class="error">
+        <label for="hospitalname">Hospital Name :</label>
+        <input type="text" id="hospital_name" formControlName="hospitalname" required />
+        <div *ngIf="hospitalForm.get('hospitalname')?.invalid && hospitalForm.get('hospitalname')?.touched" class="error">
           Hospital name is required.
         </div>
       </div>
       <div>
-        <label for="address">Address :</label>
-        <textarea id="address" formControlName="address" required></textarea>
-        <div *ngIf="hospitalForm.get('address')?.invalid && hospitalForm.get('address')?.touched" class="error">
+        <label for="hospitaladdress">Address :</label>
+        <textarea id="hospital_address" formControlName="hospitaladdress" required></textarea>
+        <div *ngIf="hospitalForm.get('hospitaladdress')?.invalid && hospitalForm.get('hospitaladdress')?.touched" class="error">
           Address is required.
         </div>
       </div>
       </div>
       <button type="submit" [disabled]="hospitalForm.invalid">Submit</button>
+      <div  id="form-feedback">
+        <div *ngIf="AddError" class="error-message">{{AddError}}</div>
+        <div *ngIf="AddSuccess" class="success-message">{{AddSuccess}}</div>
+       </div>
     </form>
   </div>
   

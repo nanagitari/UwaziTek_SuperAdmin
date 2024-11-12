@@ -13,8 +13,13 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(data: { email: string; password: string }): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const token = localStorage.getItem('authToken');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
 
+    });
+    
     return this.http.post<any>(`${this.apiUrl}/api/v1/auth/login`, data, { headers }).pipe(
       tap(response => {
         const token = response.token;
