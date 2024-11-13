@@ -6,9 +6,9 @@ import { UserService } from '../../service/user.service';
 
 
 export interface Hospital {
-  hospitalbranch: string;
-  hospitalname: string;
-  hospitaladdress: string;
+  hospital_branch: string;
+  hospital_name: string;
+  hospital_address: string;
 }
 
 @Component({
@@ -30,9 +30,10 @@ export class UserHospitalComponent implements OnInit {
   ) {
   
     this.hospitalForm = this.formBuilder.group({
-      hospitalbranch: ['', Validators.required],
-      hospitalname: ['', Validators.required],
-      hospitaladdress: ['', Validators.required]
+      
+      hospital_address: ['', Validators.required],
+      hospital_branch: ['', Validators.required],
+      hospital_name: ['', Validators.required],
     });
   }
 
@@ -44,11 +45,11 @@ export class UserHospitalComponent implements OnInit {
   onSubmit() {
     if (this.hospitalForm.valid) {
       const newHospital: Hospital = this.hospitalForm.value;
-      this.userService.addHospital(newHospital).subscribe({
+      this.userService.addHospital(this.hospitalForm.value).subscribe({
         next: (response) => {
           this.AddSuccess = 'Added hospital successfully';
           console.log('Hospital details added successfully:', response);
-          this.router.navigate(['']); 
+          this.router.navigate(['/hospital']); 
         },
         error: (error) => {
           this.AddError = 'Error, check the details';

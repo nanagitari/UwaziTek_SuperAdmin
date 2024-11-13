@@ -7,7 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { importProvidersFrom } from '@angular/core';
 import { AdminDashboardModule } from './app/admin-dashboard/admin-dashboard.module';
 import { SettingsModule } from './app/settings/settings.module';
-
+import { AuthService } from './app/service/auth.service';
 
 
 bootstrapApplication(AppComponent,{
@@ -15,7 +15,7 @@ bootstrapApplication(AppComponent,{
     importProvidersFrom(
       HttpClientModule,
       AdminDashboardModule,
-       SettingsModule
+       SettingsModule, AuthService
     ),
     provideRouter(routes), provideAnimationsAsync()
   ]

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { Hospital } from '../add-users/hospital/user-hospital.component';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,31 +10,32 @@ export class UserService {
   private apiUrl = 'http://52.22.245.63';
   private TOKEN_KEY = 'userToken';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authservice:AuthService) {}
 
-  addHospital(data: { hospitalbranch: string; hospitalname: string; hospitaladdress: string }): Observable<any> {
-    const token = localStorage.getItem('userToken');
-    const headers = new HttpHeaders({
+  private getAuthHeaders(): HttpHeaders {
+    const token = this.authservice.getToken(); // Get token from AuthService
+    return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
-
     });
+  }
+
+  addHospital(data: { hospitalbranch: string; hospitalname: string; hospitaladdress: string }): Observable<any> {
+    const headers = this.getAuthHeaders();
+    //({'Content-Type': 'application/json','Authorization': `Bearer ${token}`});
 
     return this.http.post<any>(`${this.apiUrl}/api/v1/admin/hospital`, data, { headers }).pipe(
-      tap((response: { token: any }) => {
-        const token = response.token;
+      tap (response=>{
+        const token = response.jwt;
         if (token) {
-          this.storeToken(token);
+          this.authservice.saveToken(token);
         }
       })
     );
   }
 
-  private storeToken(token: string): void {
-    localStorage.setItem(this.TOKEN_KEY, token);
-  }
-
   getUsers(): Observable<any> {
+    const headers = this.getAuthHeaders();
     return this.http.get<any>(`${this.apiUrl}/api/v1/admin/users`);
   }
 

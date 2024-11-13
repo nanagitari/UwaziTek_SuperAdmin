@@ -9,11 +9,7 @@
         <div *ngIf="policyholderForm.get('policyholderid')?. invalid && policyholderForm.get('policyholderid')?.touched" class="error">
         </div>
       </div>
-        <div>
-        <label for="policyholderName">Policy Holder Name :</label>
-        <input type="text" id="policyholderName" formControlName="policyholderName" required />
-        <div *ngIf="policyholderForm.get('policyholderName')?. invalid && policyholderForm.get('policyholderName')?.touched" class="error">
-        </div>
+        
       </div>
       <div>
         <label for="insurancename">Insurance Company :</label>
@@ -22,4 +18,4 @@
         </div>
       </div>
       <button type="submit" [disabled]="policyholderForm.invalid">Submit</button>
-      </div>
+      
