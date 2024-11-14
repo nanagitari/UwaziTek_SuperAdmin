@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService} from '../../service/auth.service';
+import { RouterModule,Router } from '@angular/router';
 
 @Component({
   selector: 'app-current-users',
@@ -10,5 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CurrentUsersComponent {
 currentUsers: any;
+
+
 
 }

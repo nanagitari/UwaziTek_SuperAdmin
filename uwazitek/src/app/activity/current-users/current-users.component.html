@@ -1,21 +1,19 @@
-<p>current-users works!</p>
-<!-- activity.component.html -->
-<h2>Current Users</h2>
-<table class="user-table">
+><h2>Current Users onboarded to the system.</h2>
+<table class="onboarded-table">
   <thead>
     <tr>
-      <th>User ID</th>
-      <th>Name</th>
-      <th>Email</th>
+      <th>email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Role</th>
       <th>Status</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of currentUsers">
-      <td>{{ user.id }}</td>
-      <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
       <td>{{ user.role }}</td>
       <td>{{ user.status }}</td>
     </tr>

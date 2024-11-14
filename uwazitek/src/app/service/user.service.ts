@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient, private authservice:AuthService) {}
 
   private getAuthHeaders(): HttpHeaders {
-    const token = this.authservice.getToken(); // Get token from AuthService
+    const token = this.authservice.getToken(); 
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -32,6 +32,18 @@ export class UserService {
         }
       })
     );
+  }
+  addInsurance(data: { address: string; contactPhoneNumber: string; insuranceName: string}): Observable<any>{
+    const headers=this.getAuthHeaders();
+
+    return this.http.post<any>(`${this.apiUrl}/api/v1/admin/insurance`, data , {headers}).pipe (
+      tap (response=>{
+        const token = response.jwt;
+        if (token) {
+          this.authservice.saveToken(token);
+        }
+      })
+    )
   }
 
   getUsers(): Observable<any> {

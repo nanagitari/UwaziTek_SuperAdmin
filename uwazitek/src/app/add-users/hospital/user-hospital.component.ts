@@ -49,7 +49,7 @@ export class UserHospitalComponent implements OnInit {
         next: (response) => {
           this.AddSuccess = 'Added hospital successfully';
           console.log('Hospital details added successfully:', response);
-          this.router.navigate(['/hospital']); 
+          this.router.navigate(['admin-dashboard/hospital']); 
         },
         error: (error) => {
           this.AddError = 'Error, check the details';

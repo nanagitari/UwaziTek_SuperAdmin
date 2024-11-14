@@ -23,7 +23,6 @@
         <label for="hospital_name">Hospital Name :</label>
         <input type="text" id="hospital_name" formControlName="hospital_name" required />
         <div *ngIf="hospitalForm.get('hospital_name')?.invalid && hospitalForm.get('hospital_name')?.touched" class="error">
-          Hospital name is required.
         </div>
       </div>
       </div>

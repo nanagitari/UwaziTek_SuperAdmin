@@ -9,7 +9,7 @@ import { tap, catchError } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://52.22.245.63'; 
   private TOKEN_KEY = 'authToken'; 
-  private REFRESH_TOKEN_KEY = 'refreshToken';
+ private REFRESH_TOKEN_KEY = 'refreshToken';
 
   constructor(private http: HttpClient) {}
 
@@ -22,9 +22,9 @@ export class AuthService {
       tap(response => {
         const token = response.jwt;
         const refreshToken= response.refreshToken;
-        if (token && refreshToken) {
+        if (token) {
           this.saveToken(token); 
-          this.saveRefreshToken(refreshToken)
+      this.saveRefreshToken(refreshToken)
         }
       }),
       catchError(this.handleError)
