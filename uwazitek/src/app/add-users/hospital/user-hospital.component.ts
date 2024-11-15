@@ -22,6 +22,8 @@ export class UserHospitalComponent implements OnInit {
   hospitalForm: FormGroup;
   AddSuccess: String = '';
   AddError: String = '';
+hospitalDetails: any;
+hospital: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,8 +40,20 @@ export class UserHospitalComponent implements OnInit {
   }
 
     ngOnInit(): void {
-     
+     this.getHospitalDetails();
     
+  }
+
+  getHospitalDetails() {
+    this.userService.fetchHospitalDetails().subscribe({
+      next: (data) => {
+        this.hospitalDetails = data.data;
+        console.log(this.hospitalDetails);
+      },
+      error: (error) => {
+        console.error('Error fetching hospital details:', error);
+      }
+    });
   }
 
   onSubmit() {

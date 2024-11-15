@@ -20,9 +20,13 @@ export class UserService {
     });
   }
 
+  fetchHospitalDetails(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/hospital`, {headers});
+  }
+
   addHospital(data: { hospitalbranch: string; hospitalname: string; hospitaladdress: string }): Observable<any> {
     const headers = this.getAuthHeaders();
-    //({'Content-Type': 'application/json','Authorization': `Bearer ${token}`});
 
     return this.http.post<any>(`${this.apiUrl}/api/v1/admin/hospital`, data, { headers }).pipe(
       tap (response=>{
@@ -44,11 +48,6 @@ export class UserService {
         }
       })
     )
-  }
-
-  getUsers(): Observable<any> {
-    const headers = this.getAuthHeaders();
-    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/users`);
   }
 
   updateUserStatus(id: any, status: string): Observable<any> {
