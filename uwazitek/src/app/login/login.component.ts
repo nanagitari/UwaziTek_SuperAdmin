@@ -28,7 +28,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          this.loginSuccess = 'Login successful!';
+        this.loginSuccess = 'Login successful!';
           console.log('Login success:', response);
          this.router.navigate(['/admin-dashboard'])
         },

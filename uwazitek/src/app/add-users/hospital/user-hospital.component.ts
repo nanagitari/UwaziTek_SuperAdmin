@@ -40,21 +40,10 @@ hospital: any;
   }
 
     ngOnInit(): void {
-     this.getHospitalDetails();
     
   }
 
-  getHospitalDetails() {
-    this.userService.fetchHospitalDetails().subscribe({
-      next: (data) => {
-        this.hospitalDetails = data.data;
-        console.log(this.hospitalDetails);
-      },
-      error: (error) => {
-        console.error('Error fetching hospital details:', error);
-      }
-    });
-  }
+ 
 
   onSubmit() {
     if (this.hospitalForm.valid) {
