@@ -18,7 +18,6 @@ import { SystemPreferenceComponent } from './settings/system-preference/system-p
 import { UserManagementComponent } from './settings/user-management/user-management.component';
 import { ClaimReportsComponent } from './activity/claim-reports/claim-reports.component';
 import { CurrentUsersComponent } from './activity/current-users/current-users.component';
-import { PolicyHolderComponent } from './add-users/policy-holder/policy-holder.component';
 
 
 export const routes: Routes = [
@@ -32,11 +31,12 @@ export const routes: Routes = [
     children:[
         {path:'hospital', component:UserHospitalComponent},
         {path:'insurance',component:UserInsuranceComponent},
-        {path:'policy-holder', component:PolicyHolderComponent},
+        
     ]},
     {path:'hospital',component: UserHospitalComponent},
     {path:'insurance', component:UserInsuranceComponent},
     {path:'view-user', component:ViewUsersComponent},
+    
     {path:'logout-dialog', component:LogoutDialogComponent},
     {path:'activity', component:ActivityComponent,
         children:[

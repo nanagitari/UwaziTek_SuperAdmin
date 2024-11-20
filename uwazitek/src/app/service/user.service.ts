@@ -7,6 +7,12 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
+  approveUser(userId: any) {
+    throw new Error('Method not implemented.');
+  }
+  denyUser(userId: any) {
+    throw new Error('Method not implemented.');
+  }
   private apiUrl = 'http://52.22.245.63';
   private TOKEN_KEY = 'userToken';
 
@@ -22,11 +28,11 @@ export class UserService {
 
   fetchHospitalDetails(): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/hospital`, {headers});
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/hospital`, {headers});
   }
-  //deleteHospital(hospitalId: string): Observable<void> {
-   // return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/hospital/1`,);
-  //}
+  deleteHospital(_hospitalId: string): Observable<void> {
+   return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/hospital/1`,);
+  }
 
   addHospital(data: { hospitalbranch: string; hospitalname: string; hospitaladdress: string }): Observable<any> {
     const headers = this.getAuthHeaders();
@@ -53,8 +59,22 @@ export class UserService {
     )
   }
 
-  updateUserStatus(id: any, status: string): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/api/v1/admin/users/status`, { status });
+  fetchInsuranceDetails(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/insurance`, {headers});
   }
+  deleteInsuranceDetails(_hospitalId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/insurance/1`,);
+   }
+ 
+  fetchHospitalUser():Observable <any>{
+    const headers = this.getAuthHeaders();
+    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/hospitaladmins`, {headers});
+    } 
+  fetchInsuranceUser():Observable <any>{
+    const headers= this.getAuthHeaders();
+    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/insuranceadmins`, {headers});
+  }    
 }
+
 

@@ -1,42 +1,34 @@
-.hospital-table {
+.loading { 
+    font-size: 18px; 
+    text-align: center; 
+    margin-top: 20px; }
+.no-data { 
+    text-align: center;
+     color: #666; 
+     margin-top: 20px; }
+.combined-table { 
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .hospital-table th, .hospital-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .hospital-table th {
-    background-color: #f4f4f4;
-  }
-  
-  .loading {
-    font-size: 18px;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .no-data {
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-    color: gray;
-  }
-  
-  .btn-danger {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .btn-danger:hover {
-    background-color: #c0392b;
-  }
-  
+     border-collapse: collapse; 
+     margin-top: 20px; }
+.combined-table th, .combined-table td {
+      border: 1px solid #2e2b2b;
+      padding: 8px;
+      text-align: left;
+    }
+    .search-container {
+        margin-bottom: 15px;
+        text-align: right;
+      }
+      
+      .search-bar {
+        padding: 8px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+.btn-danger{
+    background-color: rgb(35, 89, 206);
+    width:100px;
+}
+      

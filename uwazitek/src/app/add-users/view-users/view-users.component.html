@@ -1,29 +1,47 @@
-<h2>Current Users onboarded to the system.</h2>
-<div class="loading">
- <p> Loading hospital details... </p>
+<p>Current onboarded Users to the system.</p>
+<div class="search-container">
+  <input type="text" class="search-bar" placeholder="Search users" [(ngModel)]="searchQuery" 
+  (input)="filterUsers()" />
 </div>
 
-<table *ngIf="let hospital of HospitalDetails" class="hospital-table">
+<div class="loading" *ngIf="isLoading">
+  <p>Loading details...</p>
+</div>
+
+<table class="combined-table" *ngIf="!isLoading && filteredUsers.length > 0">
   <thead>
     <tr>
-      <th>Hospital Name</th>
-      <th>Branch</th>
+      <th>User Id</th>
+      <th>Type</th>
+      <th>Name</th>
       <th>Address</th>
+      <th>Additional Info</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let hospital of hospitals";>
-      <td>{{ hospital.hospitalName }}</td>
-      <td>{{ hospital.hospitalBranch }}</td>
-      <td>{{ hospital.hospitalAddress }}</td>
+    <tr *ngFor="let users of filteredUsers">
+      <td>{{users.Id}}</td>
+      <td>{{ users.type }}</td>
+      <td>{{ users.name }}</td>
+      <td>{{ users.Address }}</td>
+      <td>{{ users.AdditionalInfo }}</td>
       <td>
-        <button class="btn btn-danger">Delete</button>
+
+        <button *ngIf="users.type === 'Hospital'" (click)="deleteHospital(users.Id)" class="btn-danger">Delete</button>
+        <button *ngIf="users.type === 'Insurance'" (click)="deleteInsuranceDetails(users.Id)" class="btn-danger">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
 
-<div *ngIf="hospitals no data" class="no-data">
-  No hospital records found.
+<div *ngIf="!isLoading && filteredUsers.length === 0" class="no-data">
+  No records found.
 </div>
+
+
+
+
+
+
+ 

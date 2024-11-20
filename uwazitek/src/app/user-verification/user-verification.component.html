@@ -1,25 +1,47 @@
+<div *ngIf="isLoading" class="loading-spinner">Loading...</div>
 
-<table class="user-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.status }}</td>
-        <td>
-          <button (click)="approveUser(user)" class="approve-btn">Approve</button>
-          <button (click)="rejectUser(user)" class="reject-btn">Reject</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+<table *ngIf="!isLoading && users.length > 0" class="user-table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Specific Info</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <!-- Conditional rendering for Specific Info -->
+        <ng-container *ngIf="user.role === 'Hospital Admin'">
+          Hospital Name: {{ user.hospitalName }}
+        </ng-container>
+        <ng-container *ngIf="user.role === 'Insurance Admin'">
+          Company Name: {{ user.insuranceName }}
+        </ng-container>
+        <ng-container *ngIf="user.role === 'Policyholder'">
+          Policy ID: {{ user.policyId }}, Policy #: {{ user.policyNumber }}
+        </ng-container>
+        <ng-container *ngIf="user.role !== 'Hospital Admin' && user.role !== 'Insurance Admin' && user.role !== 'Policyholder'">
+          Not Available
+        </ng-container>
+      </td>
+      <td>{{ user.status }}</td>
+      <td>
+        <button class="btn-approve"(click)="approveUser(user.id)" [disabled]="user.status === 'Approved'">Approved</button>
+        <button class="btn-deny"(click)="denyUser(user.id)"[disabled]="user.status === 'Denied'"> Deny</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!isLoading && users.length === 0" class="feedback">
+  No users available for verification.
+</div>
