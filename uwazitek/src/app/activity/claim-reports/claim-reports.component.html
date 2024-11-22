@@ -1,27 +1,28 @@
-<p>claim-reports works!</p>
+<div class="claim-reports-container">
+  <h2>Claim Reports</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Claim ID</th>
+        <th>Claimant Name</th>
+        <th>Claim Date</th>
+        <th>Status</th>
+        <th>Insurance Name</th>
+        <th>Claim Amount ($)</th>
+        <th>Hospital Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of claimReports">
+        <td> <span [ngClass]="getBadgeClass(report.claimStatus)" class="badge">{{ report.claimId }}</span></td>
+        <td>{{ report.claimantName }}</td>
+        <td>{{ report.claimDate }}</td>
+        <td>{{ report.claimStatus }}</td>
+        <td>{{ report.insuranceName }}</td>
+        <td>{{ report.claimAmount | currency }}</td>
+        <td>{{ report.hospitalName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<h2>Claim Reports</h2>
-<table class="claim-table">
-  <thead>
-    <tr>
-      <th>Report ID</th>
-      <th>Patient Name</th>
-      <th>Hospital</th>
-      <th>Amount</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let report of claimReports">
-      <td>{{ report.id }}</td>
-      <td>{{ report.patientName }}</td>
-      <td>{{ report.hospital }}</td>
-      <td>{{ report.amount | currency }}</td>
-      <td>{{ report.status }}</td>
-      <td>
-        <button (click)="sendToInsurance(report)" [disabled]="report.status === 'Sent'">Send to Insurance</button>
-      </td>
-    </tr>
-  </tbody>
-</table>

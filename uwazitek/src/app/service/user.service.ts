@@ -31,12 +31,12 @@ export class UserService {
     return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/hospital`, {headers});
   }
   deleteHospital(_hospitalId: string): Observable<void> {
-   return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/hospital/1`,);
+    const headers = this.getAuthHeaders();
+   return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/hospital/1`, {headers});
   }
 
   addHospital(data: { hospitalbranch: string; hospitalname: string; hospitaladdress: string }): Observable<any> {
     const headers = this.getAuthHeaders();
-
     return this.http.post<any>(`${this.apiUrl}/api/v1/admin/hospital`, data, { headers }).pipe(
       tap (response=>{
         const token = response.jwt;
@@ -48,7 +48,6 @@ export class UserService {
   }
   addInsurance(data: { address: string; contactPhoneNumber: string; insuranceName: string}): Observable<any>{
     const headers=this.getAuthHeaders();
-
     return this.http.post<any>(`${this.apiUrl}/api/v1/admin/insurance`, data , {headers}).pipe (
       tap (response=>{
         const token = response.jwt;
@@ -64,16 +63,17 @@ export class UserService {
     return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/insurance`, {headers});
   }
   deleteInsuranceDetails(_hospitalId: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/insurance/1`,);
+    const headers = this.getAuthHeaders();
+    return this.http.delete<void>(`${this.apiUrl}/api/v1/admin/insurance/1`, {headers});
    }
  
-  fetchHospitalUser():Observable <any>{
+  fetchHospitalAdmins():Observable <any>{
     const headers = this.getAuthHeaders();
-    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/hospitaladmins`, {headers});
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/hospitaladmins`, {headers});
     } 
-  fetchInsuranceUser():Observable <any>{
+  fetchInsuranceAdmins():Observable <any>{
     const headers= this.getAuthHeaders();
-    return this.http.get<any>(`${this.apiUrl}/api/v1/admin/insuranceadmins`, {headers});
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/insuranceadmins`, {headers});
   }    
 }
 

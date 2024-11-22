@@ -7,7 +7,6 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Role</th>
-      <th>Specific Info</th>
       <th>Status</th>
       <th>Actions</th>
     </tr>
@@ -18,21 +17,6 @@
       <td>{{ user.last_name }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.role }}</td>
-      <td>
-        <!-- Conditional rendering for Specific Info -->
-        <ng-container *ngIf="user.role === 'Hospital Admin'">
-          Hospital Name: {{ user.hospitalName }}
-        </ng-container>
-        <ng-container *ngIf="user.role === 'Insurance Admin'">
-          Company Name: {{ user.insuranceName }}
-        </ng-container>
-        <ng-container *ngIf="user.role === 'Policyholder'">
-          Policy ID: {{ user.policyId }}, Policy #: {{ user.policyNumber }}
-        </ng-container>
-        <ng-container *ngIf="user.role !== 'Hospital Admin' && user.role !== 'Insurance Admin' && user.role !== 'Policyholder'">
-          Not Available
-        </ng-container>
-      </td>
       <td>{{ user.status }}</td>
       <td>
         <button class="btn-approve"(click)="approveUser(user.id)" [disabled]="user.status === 'Approved'">Approved</button>

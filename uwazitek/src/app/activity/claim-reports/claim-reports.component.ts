@@ -9,9 +9,49 @@ import { CommonModule } from '@angular/common';
   styleUrl: './claim-reports.component.css'
 })
 export class ClaimReportsComponent {
-claimReports: any;
-sendToInsurance(_t14: any) {
-throw new Error('Method not implemented.');
+
+
+claimReports = [
+  {
+    claimId: 'CR12345',
+    claimantName: 'John Doe',
+    claimDate: '2024-10-10',
+    claimStatus: 'Risky',
+    insuranceName: 'ABC Insurance',
+    claimAmount: 5000,
+    hospitalName: 'General Hospital',
+  },
+  {
+    claimId: 'CR12346',
+    claimantName: 'Jane Smith',
+    claimDate: '2024-10-12',
+    claimStatus: 'Fraud',
+    insuranceName: 'XYZ Insurance',
+    claimAmount: 2500,
+    hospitalName: 'City Health Center',
+  },
+  {
+    claimId: 'CR12347',
+    claimantName: 'Emily White',
+    claimDate: '2024-10-15',
+    claimStatus: 'Approvable',
+    insuranceName: 'Global Assurance',
+    claimAmount: 10000,
+    hospitalName: 'National Medical',
+  },
+];
+
+getBadgeClass(status: string): string {
+  switch (status) {
+    case 'Fraud':
+      return 'badge-red';
+    case 'Approvable':
+      return 'badge-green';
+    case 'Risky':
+      return 'badge-orange';
+    default:
+      return 'badge-default';
+  }
 }
 
 }

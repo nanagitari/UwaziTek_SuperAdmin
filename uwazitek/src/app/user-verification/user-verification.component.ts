@@ -33,8 +33,8 @@ throw new Error('Method not implemented.');
     this.isLoading = true; // Start loading spinner
 
     forkJoin({
-      hospitalAdmins: this.userService.fetchHospitalUser(),
-      insuranceAdmins: this.userService.fetchInsuranceUser(),
+      hospitalAdmins: this.userService.fetchHospitalAdmins(),
+      insuranceAdmins: this.userService.fetchInsuranceAdmins(),
     }).subscribe(
       ({ hospitalAdmins, insuranceAdmins }) => {
         // Combine and normalize data
@@ -63,7 +63,7 @@ throw new Error('Method not implemented.');
 
   // Fetch insurance user details (not needed here but kept for standalone calls)
   getInsuranceUser(): void {
-    this.userService.fetchInsuranceUser().subscribe({
+    this.userService.fetchInsuranceAdmins().subscribe({
       next: (data) => {
         this.insuranceUserDetails = data.data;
         console.log(this.insuranceUserDetails);
@@ -75,12 +75,12 @@ throw new Error('Method not implemented.');
   }
   // Fetch hospital user details (not needed here but kept for standalone calls)
   getHospitalUser(): void {
-    this.userService.fetchHospitalUser().subscribe({
+    this.userService.fetchHospitalAdmins().subscribe({
       next: (data) => {
         this.hospitalUserDetails = data.data;
         console.log(this.hospitalUserDetails);
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('Error fetching hospital user details:', error);
       },
     });

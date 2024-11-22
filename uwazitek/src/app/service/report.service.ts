@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ReportService {
   private baseUrl = 'http://your-api-url/api/reports';
+  private pdfUrl = '';
 
   constructor(private http: HttpClient) {}
 
@@ -18,4 +19,19 @@ export class ReportService {
   updateReportVisibility(reportId: number, visibility: boolean): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}/${reportId}`, { visibility });
   }
-}
+
+    fetchPdf() {
+      return this.http.get(this.pdfUrl, {
+        responseType: 'blob', // Fetch as binary blob
+      });
+    }
+  }
+  
+
+
+
+
+
+
+
+

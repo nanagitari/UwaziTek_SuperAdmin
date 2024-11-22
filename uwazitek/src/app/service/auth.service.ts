@@ -9,7 +9,7 @@ import { tap, catchError } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://52.22.245.63'; 
   private TOKEN_KEY = 'authToken'; 
- private REFRESH_TOKEN_KEY = 'refreshToken';
+ //private REFRESH_TOKEN_KEY = 'refreshToken';
 
   constructor(private http: HttpClient) {}
 
@@ -20,11 +20,9 @@ export class AuthService {
 
     return this.http.post<any>(`${this.apiUrl}/api/v1/auth/login`, data, { headers }).pipe(
       tap(response => {
-        const token = response.jwt;
-        const refreshToken= response.refreshToken;
+        const token = response.data.jwt;
         if (token) {
           this.saveToken(token); 
-      this.saveRefreshToken(refreshToken)
         }
       }),
       catchError(this.handleError)
@@ -34,9 +32,9 @@ export class AuthService {
   public saveToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);
   }
-  private saveRefreshToken(token: string):void{
-    localStorage.setItem(this. REFRESH_TOKEN_KEY, token);
-  }
+  //private saveRefreshToken(token: string):void{
+    //localStorage.setItem(this. REFRESH_TOKEN_KEY, token);
+  //}
 
   getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY);
