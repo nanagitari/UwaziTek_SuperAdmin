@@ -1,8 +1,14 @@
 <div *ngIf="isLoading" class="loading-spinner">Loading...</div>
 
-<table *ngIf="!isLoading && users.length > 0" class="user-table">
+<div class="search-container">
+  <input type="text" class="search-bar" placeholder="Search users"[(ngModel)]="searchQuery"(input)="filterUsers()" />
+</div>
+
+<table *ngIf="!isLoading && paginatedUsers.length > 0" class="user-table">
   <thead>
     <tr>
+      <th>#</th>
+      <th>User ID</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
@@ -12,20 +18,40 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.first_name }}</td>
-      <td>{{ user.last_name }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.role }}</td>
-      <td>{{ user.status }}</td>
+    <tr *ngFor="let users of paginatedUsers; let i = index">
+      <td>{{ i + (currentPage - 1) * recordsPerPage }} </td>
+      <td>{{ i + 1}}</td>
+      <td>{{ users.first_name }}</td>
+      <td>{{ users.last_name }}</td>
+      <td>{{ users.email }}</td>
+      <td>{{ users.role }}</td>
+      <td>{{ users.status }}</td>
       <td>
-        <button class="btn-approve"(click)="approveUser(user.id)" [disabled]="user.status === 'Approved'">Approved</button>
-        <button class="btn-deny"(click)="denyUser(user.id)"[disabled]="user.status === 'Denied'"> Deny</button>
+        <button
+          class="btn-approve"
+          (click)="approveUser(users.id)"
+          [disabled]="users.status === 'Approved'"
+        >
+          Approve
+        </button>
+        <button
+          class="btn-deny"
+          (click)="denyUser(users.id)"
+          [disabled]="users.status === 'Denied'"
+        >
+          Deny
+        </button>
       </td>
     </tr>
   </tbody>
 </table>
 
-<div *ngIf="!isLoading && users.length === 0" class="feedback">
+<div *ngIf="!isLoading && paginatedUsers.length === 0" class="feedback">
   No users available for verification.
+</div>
+
+<div class="pagination-controls" *ngIf="!isLoading && users.length > recordsPerPage">
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Next</button>
 </div>

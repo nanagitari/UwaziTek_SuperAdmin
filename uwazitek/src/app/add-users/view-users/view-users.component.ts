@@ -13,11 +13,19 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ViewUsersComponent implements OnInit  {
-searchQuery: string='';
-usertype: string = '';
-isLoading: boolean = false;
+
 users: any[]=[];
 filteredUsers: any[]=[];
+paginatedUsers: any[]= [];
+
+searchQuery: string='';
+usertype: string = '';
+isLoading: boolean = false
+
+recordsPerPage = 8;
+currentPage = 1;
+totalPages = 1;
+
 
 
 
@@ -60,6 +68,7 @@ fetchData(): void {
         }))
       ];
       this.filteredUsers = [...this.users]; 
+      this.updatedPagination();
         this.isLoading = false;
     },
     (error) => {
@@ -109,9 +118,29 @@ deleteInsuranceDetails(Id: string): void {
       (user.Address?.toLowerCase() || '').includes(query) ||
       (user.AdditionalInfo?.toLowerCase() || '').includes(query)
     );
+    this.currentPage = 1 ;
+    this.updatedPagination();
   }
-  
-  
+  updatedPagination() {
+    const startIndex = (this.currentPage - 1) * this.recordsPerPage;
+    this.paginatedUsers = this.filteredUsers.slice(
+      startIndex,
+      startIndex + this.recordsPerPage
+    );
+    this.totalPages = Math.ceil(this.filteredUsers.length / this.recordsPerPage);
+    }
+  goToNextPage():void{
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatedPagination();
+    }
+  }
+  goToPreviousPage():void{
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updatedPagination();
+    }
+  }
 }
 
 

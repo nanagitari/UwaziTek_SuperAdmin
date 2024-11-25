@@ -12,6 +12,7 @@ import { RouterModule,Router } from '@angular/router';
 })
 export class CurrentUsersComponent {
 currentUsers: any;
+activeUsers: any;
 
 
 

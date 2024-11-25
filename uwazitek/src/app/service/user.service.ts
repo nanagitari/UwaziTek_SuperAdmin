@@ -74,7 +74,14 @@ export class UserService {
   fetchInsuranceAdmins():Observable <any>{
     const headers= this.getAuthHeaders();
     return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/insuranceadmins`, {headers});
-  }    
+  }  
+  updateUserStatus(userId: number, payload: any) {
+    const headers= this.getAuthHeaders();
+    return this.http.patch(`${this.apiUrl}/api/v1/admin/hospitaladmin/1`, payload,{headers});
+  }
+  
+  
+
 }
 
 

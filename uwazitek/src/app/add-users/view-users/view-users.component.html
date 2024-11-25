@@ -11,6 +11,7 @@
 <table class="combined-table" *ngIf="!isLoading && filteredUsers.length > 0">
   <thead>
     <tr>
+      <th>#</th>
       <th>User Id</th>
       <th>Type</th>
       <th>Name</th>
@@ -20,7 +21,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let users of filteredUsers">
+    <tr *ngFor="let users of paginatedUsers let i = index">
+      <td>{{ i + (currentPage - 1) * recordsPerPage }} </td>
       <td>{{users.Id}}</td>
       <td>{{ users.type }}</td>
       <td>{{ users.name }}</td>
@@ -38,6 +40,12 @@
 <div *ngIf="!isLoading && filteredUsers.length === 0" class="no-data">
   No records found.
 </div>
+<div class="pagination-controls" *ngIf="!isLoading && users.length > recordsPerPage">
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
+
 
 
 

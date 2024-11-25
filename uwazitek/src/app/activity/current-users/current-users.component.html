@@ -1,21 +1,24 @@
-><h2>Current Users onboarded to the system.</h2>
-<table class="onboarded-table">
+<p>Active Users onboarded to the system.</p>
+<table>
   <thead>
     <tr>
-      <th>email</th>
+      <th>#</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Role</th>
+      <th>Company Name</th>
       <th>Status</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of currentUsers">
-      <td>{{ user.email }}</td>
+    <tr *ngFor="let user of activeUsers; let i = index">
+      <td>{{ i + 1 }}</td>
       <td>{{ user.first_name }}</td>
       <td>{{ user.last_name }}</td>
       <td>{{ user.role }}</td>
+      <td>{{ user.hospitalName }}</td>
       <td>{{ user.status }}</td>
     </tr>
   </tbody>
 </table>
+

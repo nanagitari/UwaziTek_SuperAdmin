@@ -13,19 +13,88 @@
     background-color: #f2f2f2;
   }
   
-  .approve-btn {
-    color: #fff;
-    background-color: green;
-    border: none;
+  .btn-approve {
+    color: #101110;
+    background-color: rgba(16, 126, 16, 0.753);
+    border: 1px;
+    padding: 5px 9px;
+    cursor: pointer;
+    
+  }
+  
+  .btn-deny {
+    color: #0a0a0a;
+    background-color: rgba(194, 15, 15, 0.541);
+    border: 1px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .search-container {
+    margin-bottom: 15px;
+    text-align: right;
+  }
+  
+  .search-bar {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+  }
+  
+  .search-bar {
+    margin: 10px;
+    padding: 5px;
+    font-size: 1em;
+  }
+  
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .pagination-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .user-table th,
+  .user-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .btn-approve,
+  .btn-deny {
+    margin-right: 5px;
     padding: 5px 10px;
     cursor: pointer;
   }
   
-  .reject-btn {
-    color: #fff;
-    background-color: red;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+  .btn-approve:hover {
+    background-color: #daebdb;
+    color: rgb(37, 36, 36);
+  }
+  
+  .btn-deny:hover {
+    background-color: #ece3e2;
+    color: rgb(24, 23, 23);
   }
   
