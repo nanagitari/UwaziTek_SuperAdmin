@@ -79,6 +79,14 @@ export class UserService {
     const headers= this.getAuthHeaders();
     return this.http.patch(`${this.apiUrl}/api/v1/admin/hospitaladmin/1`, payload,{headers});
   }
+  fetchActiveHospitalAdmins():Observable<any>{
+    const headers = this.getAuthHeaders();
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/hospitaladmins?is_verified=TRUE`, {headers});
+  }
+  fetchActiveInsuranceAdmins():Observable<any>{
+    const headers = this.getAuthHeaders();
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/admin/insuranceadmins?is_verified=TRUE`, {headers})
+  }
   
   
 
