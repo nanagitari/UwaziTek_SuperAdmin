@@ -3,7 +3,7 @@ import { LucideAngularModule,HomeIcon,SettingsIcon,PlusSquareIcon,UserCheckIcon,
 import { Router } from '@angular/router';
 import { AddUserPageComponent } from '../../add-users/add-user-page.component';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+//import { RouterOutlet } from '@angular/router';
 import { HomeLayoutComponent } from '../../home/home-layout/home-layout.component';
 import { LogoutDialogComponent } from '../../logout-dialog/logout-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,7 +18,8 @@ import { UserVerificationComponent } from '../../user-verification/user-verifica
   imports: [LucideAngularModule,
     AddUserPageComponent, HomeLayoutComponent,
     CommonModule, LogoutDialogComponent,
-    RouterOutlet, ActivityComponent, SettingsComponent, UserVerificationComponent],
+   // RouterOutlet,
+     ActivityComponent, SettingsComponent, UserVerificationComponent],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })

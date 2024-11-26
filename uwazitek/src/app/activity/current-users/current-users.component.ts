@@ -7,7 +7,7 @@ import { forkJoin } from 'rxjs';
   selector: 'app-current-users',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './current-users.component.html',
+  templateUrl:'./current-users.component.html',
   styleUrls: ['./current-users.component.css'],
 })
 export class CurrentUsersComponent implements OnInit{

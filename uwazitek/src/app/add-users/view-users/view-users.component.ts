@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../service/user.service';
 import { forkJoin } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+//import { ConfirmDeleteDialogComponent } from '../confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-view-users',
   standalone: true,
-  imports: [CommonModule, FormsModule,],
+  imports: [CommonModule, FormsModule],
   templateUrl: './view-users.component.html',
   styleUrls: ['./view-users.component.css']
 })
