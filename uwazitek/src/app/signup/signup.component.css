@@ -1,16 +1,16 @@
 h2 {
-    position: center;
-    color:blue;
+    padding: 30px;
+    position: relative;
+    color:rgb(25, 25, 29);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .signup-container {
-    background: #afa3e4;
-    padding: 50px;
+    background: #7e68e2;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    height: auto;
+    max-width: 700px;
+    
 }
 
 label {
@@ -42,7 +42,20 @@ button {
 }
 #logo-image{
     height: 90px;
+    padding: 30px;
 }
 body{
-    background-color: #c6beeb;
+    background-color: #10536b;
+    height:100vh;
+}
+main {
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width : 100%;
+    background-position: center;
+    background-size: cover;
+    
 }

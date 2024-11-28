@@ -18,15 +18,11 @@
 
       <!-- Notification Section -->
       <div class="notification">
-        <lucide-icon [img]="BellIcon" (click)="toggleNotifications()"></lucide-icon>
+        <lucide-icon [img]="BellIcon"></lucide-icon>
         <span *ngIf="notificationCount > 0" class="notification-badge">{{ notificationCount }}</span>
-        <div *ngIf="showNotifications" class="notifications-dropdown">
-          <div *ngFor="let notification of notifications">
-            <p>{{ notification.message }}</p>
-          </div>
+
         </div>
       </div>
-    </div>
   </header>
 
   <!-- Statistics Cards -->

@@ -1,41 +1,78 @@
-
 <header class="brand-name">
 </header>
 <div class="main-container">
-<nav (click)="handleIconClick()"class="navbar">
-    <img src="assets/logo.png" alt="" srcset="" id="logo-image">
-<div >
-<lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home" ></lucide-icon>
-<span class="icon-label" (click)="onclick('home-layout')">Home</span>
-</div>
-<div >
-    <lucide-icon [img]="PlusSquareIcon" class="my-icon" aria-label="Add users"></lucide-icon>
-    <span class="icon-label"(click)="onclick('add-user-page')">Add users</span>  
-</div>
-<div >
- <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
-<span class="icon-label" (click)="onclick('user-verification')">User Verification</span>
-</div>
-<div>
-    <lucide-icon [img]="ActivityIcon" class="my-icon" aria-label="Activity"> </lucide-icon>
-    <span class="icon-label" (click)="onclick('activity')">Activity</span>
-</div> 
-<div>
-<lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"></lucide-icon>
-<span class="icon-label"(click)="onclick('settings')">Settings</span>
+    <nav (click)="handleIconClick()" class="navbar">
+        <div class="top-section">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="" srcset="" id="logo-image">
+            </div>
+
+            <div class="nav-links">
+                <div class="home-nav nav-div" [class.nav-active]="activeTab === 'home-layout'"
+                    (click)="addActive('home-layout')">
+                    <lucide-icon [img]="HomeIcon" class="my-icon" aria-label="Home"></lucide-icon>
+                    <span class="icon-label">Home</span>
+                </div>
+
+
+                <!-- <div class="dropdown-container user-hub-nav">
+                    <div class="dropdown-header" (click)="toggleDropdown()">
+                        <lucide-icon [img]="UsersIcon" class="my-icon" aria-label="Users Hub"></lucide-icon>
+                        <span class="icon-label"> Users Hub</span>
+                    </div>
+                    <div class="dropdown-menu" *ngIf="isDropdownclicked">
+                        <div class="dropdown-item">
+                            <lucide-icon [img]="UserPlusIcon" class="my-icon" aria-label="Add user"></lucide-icon>
+                            <span class="icon-label" (click)="onclick('add-user-page')">Add User</span>
+                        </div>
+                        <div class="dropdown-item">
+                            <lucide-icon [img]="EyeIcon" class="my-icon" arial-label="View User"></lucide-icon>
+                            <span class="icon-label" (click)="onclick('view-users')">View User</span>
+                        </div>
+                        <div class="dropdown-item">
+                            <lucide-icon [img]="UserCheckIcon" class="my-icon" aria-label="User Verification"></lucide-icon>
+                            <span class="icon-label" (click)="onclick('user-verification')">User Verification</span>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="dropdown-btn nav-div" [class.active]="isDropdownclicked" (click)="toggleDropdown()">
+                    <lucide-icon [img]="UsersIcon" class="my-icon" aria-label="Users Hub"></lucide-icon>
+                    <span class="icon-label"> Users Hub</span>
+                </div>
+                  <div class="dropdown-container" [style.display]="isDropdownclicked ? 'flex' : 'none'">
+                      <span class="icon-label" (click)="onclick('view-users')">View Users</span>
+                      <span class="icon-label" (click)="onclick('add-user-page')">Add User</span>
+                    <span class="icon-label" (click)="onclick('user-verification')">Verification</span>
+                </div>
+
+                <div class="claims-nav nav-div">
+                    <lucide-icon [img]="FilesIcon" class="my-icon" aria-label="claims report"> </lucide-icon>
+                    <span class="icon-label" (click)="onclick('activity')">Claims Report</span>
+                </div>
+                <div class="settings-nav nav-div" [class.nav-active]="activeTab === 'settings'"
+                (click)="addActive('settings')">>
+                    <lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="Settings"></lucide-icon>
+                    <span class="icon-label" (click)="onclick('settings')">Settings</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="logout-area">
+            <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out"></lucide-icon>
+            <span class="icon-label" (click)="openLogoutDialog()">Log Out</span>
+        </div>
+    </nav>
+
+    <div class="content">
+        <app-add-user-page *ngIf="usertype==='add-user-page'"></app-add-user-page>
+        <app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
+        <app-home-layout *ngIf="activeTab==='home-layout'"></app-home-layout>
+        <app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
+        <app-activity *ngIf="usertype==='activity'"></app-activity>
+        <app-settings *ngIf="activeTab==='settings'"></app-settings>
+        <app-user-verification *ngIf="usertype==='user-verification'"></app-user-verification>
+        <app-view-users *ngIf="usertype ==='view-users'"> </app-view-users>
     </div>
-<div>
-  <button>
-  <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out"></lucide-icon>
-    <span class="icon-label" (click)="openLogoutDialog()">Log Out</span> 
-    </button> 
-</div>
-</nav>
-<div class="content">
-<app-add-user-page *ngIf="usertype==='add-user-page'"></app-add-user-page>
-<app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
-<app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
-<app-activity *ngIf="usertype==='activity'"></app-activity>
-<app-settings *ngIf="usertype==='settings'"></app-settings>
-<app-user-verification *ngIf="usertype==='user-verification'"></app-user-verification>
 </div>

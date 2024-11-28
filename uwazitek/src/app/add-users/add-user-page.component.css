@@ -10,8 +10,8 @@
   display:grid;
 
 }
-label{
-  font-style: bold;
+mat-tab{
+  font-weight: bold;
   background-color: black;
 }
 label:hover{

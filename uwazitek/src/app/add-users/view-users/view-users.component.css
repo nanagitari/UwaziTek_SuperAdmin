@@ -1,34 +1,54 @@
-.loading { 
-    font-size: 18px; 
-    text-align: center; 
-    margin-top: 20px; }
-.no-data { 
-    text-align: center;
-     color: #666; 
-     margin-top: 20px; }
-.combined-table { 
-    width: 100%;
-     border-collapse: collapse; 
-     margin-top: 20px; }
-.combined-table th, .combined-table td {
-      border: 1px solid #2e2b2b;
-      padding: 8px;
-      text-align: left;
-    }
-    .search-container {
-        margin-bottom: 15px;
-        text-align: right;
-      }
-      
-      .search-bar {
-        padding: 8px;
-        width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
-      }
-.btn-danger{
-    background-color: rgb(35, 89, 206);
-    width:100px;
+.page-name {
+  font-size: 30px;
+  font-weight: bold;
 }
-      
+
+.loading {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+}
+
+.combined-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.combined-table th,
+.combined-table td {
+  border: 1px solid #2e2b2b;
+  padding: 8px;
+  text-align: left;
+}
+
+.combined-table th{
+  background-color: #0F2473;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+
+.search-container {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.search-bar {
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn-danger {
+  background-color: rgb(35, 89, 206);
+  width: 100px;
+}

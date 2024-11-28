@@ -1,10 +1,11 @@
-
+<body>
+  <main>
 <header class="brand-name">
     <img src="assets/logo.png" alt="" srcset="" id="logo-image">
     <h2>Sign up Page </h2>
 </header>
-<body>
-    <section class="signup-container">
+  
+   <section class="signup-container">
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
           <div>
             <label for="first_name">First Name:</label>
@@ -39,10 +40,8 @@
               <small *ngIf="signupForm.get('password')?.errors?.['minlength']">Password should have at least 8 characters</small>
             </div>
           </div>
-      
-          <div>
+    
             <button class="signup" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
-          </div>
       
           <div id="form-feedback">
             <div *ngIf="signupinError" class="error-message">{{signupinError}}</div>
@@ -50,4 +49,5 @@
           </div>
         </form>
       </section>
-</body>      
+    </main> 
+  </body>      

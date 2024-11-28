@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../service/user.service';
 import { forkJoin } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-//import { ConfirmDeleteDialogComponent } from '../confirm-delete/confirm-delete.component';
+import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
+import { MatDialogModule, MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-users',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,EditUserDialogComponent,MatDialogModule,],
   templateUrl: './view-users.component.html',
   styleUrls: ['./view-users.component.css']
 })
@@ -30,7 +31,7 @@ totalPages = 1;
 
 
 
-constructor ( private userService: UserService){}
+constructor ( private userService: UserService, private dialog: MatDialog){}
 
 ngOnInit(): void {
   this.fetchData();
@@ -141,6 +142,19 @@ deleteInsuranceDetails(Id: string): void {
       this.currentPage--;
       this.updatedPagination();
     }
+  }
+  openEditUserDialog(user: any): void {
+    const dialogRef = this.dialog.open(EditUserDialogComponent, {
+      width: '400px',
+      data: { user: { ...user } }
+    });
+  
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        Object.assign(user, result);
+        console.log('User updated:', user);
+      }
+    });
   }
 }
 

@@ -13,18 +13,18 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./home-layout.component.css'],
 })
 export class HomeLayoutComponent implements OnInit {
-  userName: string = ''; // Corrected declaration
-  showContactInfo: boolean = false; // Initialize to false
+  public userName: string = ''; 
+  public showContactInfo: boolean = false; 
 
   contactinfo = [
     { email: 'uwazitek@gmail.com' },
     { phone: '+254712345678 / +2547895635' },
   ];
 
-  BellIcon = BellIcon; // Lucide Bell icon
-  MailIcon = MailIcon; // Lucide Mail icon
+  BellIcon = BellIcon; 
+  MailIcon = MailIcon;
 
-  notificationCount: number = 4; // Example count
+  
   showNotifications: boolean = false;
   notifications = [
     { message: 'New user registered' },
@@ -33,10 +33,11 @@ export class HomeLayoutComponent implements OnInit {
   ];
 
   statistics = [
-    { title: 'Hospitals', count: 13, icon: 'local_hospital', color: 'primary' },
-    { title: 'Insurance', count: 10, icon: 'security', color: 'accent' },
+    { title: 'Hospitals', count: 13, icon: 'local_hospital', color: 'primary', route: '/view-users' },
+    { title: 'Insurance', count: 10, icon: 'security', color: 'accent', route: '/view-users' },
   ];
- const router: any;
+notificationCount: any;
+  constructor (public router: Router){}
 
   ngOnInit(): void {
     this.userName = localStorage.getItem('userName') || 'Super Admin';
