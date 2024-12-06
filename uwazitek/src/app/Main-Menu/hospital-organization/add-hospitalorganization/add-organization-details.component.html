@@ -1,0 +1,49 @@
+<div class="main-container">
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <!-- Step 1: Organization Details -->
+     <div class="mat-horizontal-stepper-wrapper"></div>
+    <mat-step [stepControl]="organizationFormGroup">
+      <form [formGroup]="organizationFormGroup">
+        <h3>Hospital Organization Details</h3>
+        <mat-form-field class="full-width">
+          <mat-label>Hospital Name</mat-label>
+          <input matInput formControlName="hospitalName" required />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Branch</mat-label>
+          <input matInput formControlName="branch" required />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Address</mat-label>
+          <textarea matInput formControlName="address" required></textarea>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+  
+    <!-- Step 2: Admin Details -->
+    <mat-step [stepControl]="adminFormGroup">
+      <form [formGroup]="adminFormGroup">
+        <h3>Hospital Admin Details</h3>
+        <mat-form-field class="full-width">
+          <mat-label>Admin Name</mat-label>
+          <input matInput formControlName="adminName" required />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" required />
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+  </div>

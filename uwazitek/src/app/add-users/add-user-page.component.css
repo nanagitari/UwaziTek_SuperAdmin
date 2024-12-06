@@ -17,4 +17,7 @@ mat-tab{
 label:hover{
   color:bisque;
 }
-  
+ .add-mat{
+  width: 70vw;
+  height: 70vh;
+ } 

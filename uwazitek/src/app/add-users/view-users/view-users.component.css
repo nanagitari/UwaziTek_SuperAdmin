@@ -50,5 +50,10 @@
 
 .btn-danger {
   background-color: rgb(35, 89, 206);
-  width: 100px;
+  width: 50px;
+}
+.edit-btn{
+  background-color:rgb(218, 224, 236) ;
+  width: 50px;
+  color: rgb(35, 89, 206);
 }

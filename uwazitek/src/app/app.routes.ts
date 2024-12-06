@@ -7,17 +7,19 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboardLayout
 import { AddUserPageComponent } from './add-users/add-user-page.component';
 import { UserHospitalComponent } from './add-users/hospital/user-hospital.component';
 import { UserInsuranceComponent } from './add-users/insurance/user-insurance.component';
-import { HomeLayoutComponent } from './home/home-layout/home-layout.component';
+import { HomeLayoutComponent } from './Main-Menu/home/home-layout/home-layout.component';
 import { ViewUsersComponent } from './add-users/view-users/view-users.component';
-import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
-import { ActivityComponent } from './activity/activity.component';
-import { SettingsComponent } from './settings/settings.component';
+import { LogoutDialogComponent } from './dialog box/logout-dialog/logout-dialog.component';
+import { ActivityComponent } from './Main-Menu/reports/activity/activity.component';
+import { SettingsComponent } from './Preference/settings/settings.component';
 import { UserVerificationComponent } from './user-verification/user-verification.component';
-import { SecuritySettingsComponent } from './settings/security-settings/security-settings.component';
-import { SystemPreferenceComponent } from './settings/system-preference/system-preference.component';
-import { UserManagementComponent } from './settings/user-management/user-management.component';
-import { ClaimReportsComponent } from './activity/claim-reports/claim-reports.component';
-import { CurrentUsersComponent } from './activity/current-users/current-users.component';
+//import { SecuritySettingsComponent } from './Preference/settings/security-settings/security-settings.component';
+//import { SystemPreferenceComponent } from './Preference/settings/system-preference/system-preference.component';
+//import { UserManagementComponent } from './Preference/settings/user-management/user-management.component';
+import { ClaimReportsComponent } from './Main-Menu/reports/claim-reports/claim-reports.component';
+import { ProfileComponent } from './Preference/profile/profile.component';
+import { HelpcenterComponent } from './Preference/helpcenter/helpcenter.component';
+//import { CurrentUsersComponent } from './Main-Menu/reports/activity/current-users/current-users.component';
 
 
 export const routes: Routes = [
@@ -25,8 +27,11 @@ export const routes: Routes = [
     {path:'signup',component:SignupComponent},
     {path:'resetpassword',component:ResetpasswordComponent},
     {path:'',redirectTo:'/login',pathMatch:'full'},
+
+    { path: '', redirectTo: 'home-layout', pathMatch: 'full' },
     {path:'admin-dashboard', component:AdminDashboardComponent},
-    {path:'home', component: HomeLayoutComponent},
+    
+    {path:'home-layout', component: HomeLayoutComponent},
     {path:'add-users', component: AddUserPageComponent,
     children:[
         {path:'hospital', component:UserHospitalComponent},
@@ -41,18 +46,12 @@ export const routes: Routes = [
     {path:'activity', component:ActivityComponent,
         children:[
             {path:'claim-report', component:ClaimReportsComponent},
-            {path:'current-users', component:CurrentUsersComponent}
         ]
     },
-    {path:'settings', component: SettingsComponent,
-    children:[
-        {path:'security-settings', component:SecuritySettingsComponent},
-        {path:'system-preference', component:SystemPreferenceComponent},
-        {path:'User-management', component:UserManagementComponent}
-    ]
-    },
-    {path:'user-verification', component: UserVerificationComponent}
-    
+    {path:'settings', component: SettingsComponent},
+    {path:'user-verification', component: UserVerificationComponent},
+    {path: 'profile', component: ProfileComponent},
+    {path:'helpcenter', component: HelpcenterComponent}
 
 ];
 

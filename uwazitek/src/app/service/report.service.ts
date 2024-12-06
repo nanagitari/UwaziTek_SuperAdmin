@@ -25,7 +25,13 @@ export class ReportService {
         responseType: 'blob', // Fetch as binary blob
       });
     }
+    getstatistics (){ [
+      { title: 'Total Hospitals', count: 13, icon: 'local_hospital', color: 'primary', route: '/view-users' },
+      { title: 'Total Insurances', count: 10, icon: 'security', color: 'accent', route: '/view-users' },
+      {title: 'Total ClaimReports', count: 3, icon: 'report', color:'primary', route:'./activity'},
+    ];
   }
+}
   
 
 

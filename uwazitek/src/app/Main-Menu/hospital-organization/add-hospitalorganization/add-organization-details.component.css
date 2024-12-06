@@ -1,0 +1,9 @@
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  mat-horizontal-stepper {
+    margin: 24px 0;
+  }
+ 

@@ -1,0 +1,21 @@
+.main-container {
+    padding: 5px;
+    display:grid;
+    
+  }
+  
+  .settings-tab {
+    margin-bottom: 20px;
+    background-color: rgb(36, 83, 211);
+    height: fit-content;
+    
+  }
+  label {
+    color:black
+  }
+  label :hover{
+    color:beige;
+  }
+  .mat-settings{
+    width: 70vw;
+  }

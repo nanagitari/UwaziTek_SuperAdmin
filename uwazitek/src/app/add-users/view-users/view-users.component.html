@@ -31,7 +31,7 @@
       <td>{{ users.Address }}</td>
       <td>{{ users.AdditionalInfo }}</td>
       <td>
-        <button mat-button color="primary" (click)="openEditUserDialog(users.Id)">Edit</button>
+        <button class="ëdit-btn" mat-button color="primary" (click)="openEditUserDialog(users.Id)">Edit</button>
         <button *ngIf="users.type === 'Hospital'" (click)="deleteHospital(users.Id)" class="btn-danger">Delete</button>
         <button *ngIf="users.type === 'Insurance'" (click)="deleteInsuranceDetails(users.Id)" class="btn-danger">Delete</button>
       </td>
