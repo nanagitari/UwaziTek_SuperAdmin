@@ -1,0 +1,82 @@
+
+<div class="main-container">
+    <div class="sidebar" (click)="handleIconClick()">
+        <div class="sidebar-header">
+            <img src="assets/Organization Logo.png" alt="" id="sidebar-logo">
+        </div>
+  
+        <div class="sidebar-middle">
+            <div class="top-middle">
+                <p>Main Menu</p>
+                <ul class="sidebar-menu">
+                    <li [class.active-nav]="usertype === 'insurancehome'" (click)="addActive('insurancehome')">
+                        <img src="assets/icons/dashboard_blue.svg" class="menu-icon" />
+                        <a class="menu-link" (click)="onclick('insurancehome')">Dashboard</a>
+                    </li>
+                    <li [class.active]="activeDropdown==='Users'"
+                        (click)="toggleDropdown('Users')" id="dropdown-parent">
+        <div class="main-link">
+            <img src="assets/icons/hospital.svg" class="menu-icon">
+             <a class="menu-link" (click)="onclick('Users')">Users</a>
+        </div>
+           <ul class="dropdown-menu"
+             [style.display]="activeDropdown === 'Users' ? 'flex' : 'none'">
+            <li [class.active-nav]="usertype==='add-user'"
+                (click)="addActive('add-user')">
+                <a class="menu-link" (click)="onclick('add-user')">Add User</a>
+             </li>
+            <li [class.active-nav]="usertype==='register-customer'"
+                (click)="addActive('register-customer')">
+              <a class="menu-link" (click)="onclick('register-customer')">Register Customer</a>
+             </li>
+           </ul>
+  </li>
+     <li [class.active-nav]="usertype==='pre-request'" (click)="addActive('pre-request')">
+        <img src="assets/icons/reports.svg" class="menu-icon">
+        <a class="menu-link" (click)="onclick('pre-request')">Pre-request</a>
+        </li>
+    </ul>
+  </div>
+  
+  <div class="bottom-middle">
+    <p>Preferences</p>
+    <ul class="sidebar-menu">
+        <li [class.active-nav]="usertype==='settings'"(click)="addActive('settings')">
+             <img src="assets/icons/settings.svg" class="menu-icon">
+        <a class="menu-link"(click)="onclick('settings')">Settings</a>
+         </li>
+        <li [class.active-nav]="usertype==='profile'"(click)="addActive('profile')">
+            <img src="assets/icons/profile.svg" class="menu-icon">
+        <a class="menu-link" (click)="onclick('profile')">Profile</a>
+        </li>
+        <li [class.active-nav]="usertype==='helpcenter'" (click)="addActive('helpcenter')">
+          <img src="assets/icons/help.svg" class="menu-icon">
+         <a class="menu-link"(click)="onclick('helpcenter')">Help Center</a>
+        </li>
+    </ul>
+  </div>
+  </div>
+        <div class="sidebar-bottom">
+            <div class="profile-details">
+                <div class="profile-details-text">
+                    <p class="name">Gabriel Ouma</p>
+                    <p class="role">UW·Admin</p>
+                </div>
+            </div>
+            <div class="logout-button">
+                <a (click)="openLogoutDialog()">
+                    <img src="assets/icons/logout.svg">
+                    Logout</a>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+  <div class="content">
+    <app-insurancehome *ngIf="usertype==='insurancehome'"></app-insurancehome>
+    <app-add-user *ngIf="usertype==='add-user'"></app-add-user>
+    <app-register-customer *ngIf="usertype==='register-customer'"></app-register-customer>
+    <app-pre-request *ngIf="usertype==='pre-request'"></app-pre-request>
+
+    
+  </div>

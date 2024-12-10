@@ -1,88 +1,103 @@
-<header class="brand-name">
-</header>
 <div class="main-container">
-    <nav (click)="handleIconClick()" class="navbar">
-            <div class="top-section">
-            <div class="nav-logo">
-                <img src="assets/logo uwazitek.png" alt="" srcset="" id="logo-image">
-            </div>
-        
-            <div class="nav-links">
-                <p>Main Menu </p>
-                <div class="home-nav nav-div" [class.nav-active]="activeTab === 'home-layout'"
-                    (click)="addActive('home-layout')">
-                    <lucide-icon [img]="LayoutDashboardIcon" class="my-icon" aria-label="dashboard"></lucide-icon>
-                    <span class="icon-label" (click)="onclick('home-layout')">Dashboard</span>
-                </div>
-                
-<div class="dropdown-btn nav-div" [class.active]="activeDropdown === 'hospital-organization'" (click)="toggleDropdown('hospital-organization')">
-    <lucide-icon [img]="HospitalIcon" class="my-icon" aria-label="Organization"></lucide-icon>
-    <span class="icon-label">Hospital Organization</span>
-  </div>
-  <div class="dropdown-container" [style.display]="activeDropdown === 'hospital-organization' ? 'flex' : 'none'">
-    <div class="view-nav nav-div" [class.nav-active]="activeTab === 'overview-hospital'" (click)="addActive('overview-hospital')">
-      <span class="icon-label" (click)="onclick('overview-hospital')">Overview</span>
-    </div>
-    <div class="add-nav nav-div" [class.nav-active]="activeTab === 'add-hospitalorganization'" (click)="addActive('add-hospitalorganization')">
-      <span class="icon-label" (click)="onclick('add-hospitalorganization')">Add Hospital</span>
-    </div>
-  </div>
-  
-  
-  <div class="dropdown-btn nav-div" [class.active]="activeDropdown === 'insurance-organization'" (click)="toggleDropdown('insurance-organization')">
-    <lucide-icon [img]="ShieldCheckIcon" class="my-icon" aria-label="Organization Insurance"></lucide-icon>
-    <span class="icon-label">Insurance Organization</span>
-  </div>
-  <div class="dropdown-container" [style.display]="activeDropdown === 'insurance-organization' ? 'flex' : 'none'">
-    <div class="view-nav nav-div" [class.nav-active]="activeTab === 'overview-insurance'" (click)="addActive('overview-insurance')">
-      <span class="icon-label" (click)="onclick('overview-insurance')">Overview</span>
-    </div>
-    <div class="add-nav nav-div" [class.nav-active]="activeTab === 'add-insuranceorganization'" (click)="addActive('add-insuranceorganization')">
-      <span class="icon-label" (click)="onclick('add-insuranceorganization')">Add Insurance</span>
-    </div>
-  </div>
-                <div class="claims-nav nav-div" [class.nav-active]="activeTab==='activity'" (click)="addActive('activity')">
-                    <lucide-icon [img]="FilesIcon" class="my-icon" aria-label="reports"> </lucide-icon>
-                    <span class="icon-label" (click)="onclick('activity')">Reports</span>
-                </div>
-                </div>
-                <div class="bottom-section">
-                  <p>Preference</p>
-                <div class="settings-nav nav-div" [class.nav-active]="activeTab === 'settings'"
-                (click)="addActive('settings')">
-                    <lucide-icon [img]="SettingsIcon" class="my-icon" aria-label="settings"></lucide-icon>
-                    <span class="icon-label" (click)="onclick('settings')">Settings</span>
-                </div>
-                <div class="profile-nav nav-div" [class.nav-active]="activeTab === 'profile'"
-                (click)="addActive('profile')">
-                   <lucide-icon [img]="CircleUserRoundIcon" class="my-icon" arial-label="profile"></lucide-icon>
-                   <span class="icon-label" (click)="onclick('profile')">Profile</span>
-              </div>
-              <div class="help-nav nav-div" [class.nav-active]="activeTab === 'helpcenter'"
-              (click)="addActive('helpcenter')">
-                 <lucide-icon [img]="InfoIcon" class="my-icon" arial-label="help"></lucide-icon>
-                 <span class="icon-label" (click)="onclick('helpcenter')">Help Center</span>
-            </div>
-            </div>
-            </div>
-        
-        <div class="logout-area" [class.nav-active]="activeTab==='logout-dialog'"
-        (click)="addActive('logout-dialog')">
-            <lucide-icon [img]="LogOutIcon" class="my-icon" aria-label="Log Out"></lucide-icon>
-            <span class="icon-label" (click)="openLogoutDialog()">Log Out</span>
+    <div class="sidebar" (click)="handleIconClick()">
+        <div class="sidebar-header">
+            <img src="assets/logo-navy.svg" alt="" id="sidebar-logo">
         </div>
-        
-    </nav>
 
-    <div class="content">
-        <app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
-        <app-overview-hospital *ngIf="usertype==='overview-hospital'"></app-overview-hospital>
-        <app-add-organization-details *ngIf="usertype==='add-hospitalorganization'"></app-add-organization-details>
-        <app-overview-insurance *ngIf="usertype==='overview-insurance'"></app-overview-insurance>
-        <app-add-insuranceorganization-details *ngIf="usertype==='add-insuranceorganization'"></app-add-insuranceorganization-details>
-        <app-activity *ngIf="usertype==='activity'"></app-activity>
-        <app-settings *ngIf="usertype==='settings'"></app-settings>
-        <app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
-        <app-helpcenter *ngIf="usertype==='helpcenter'"></app-helpcenter>
-        <app-profile *ngIf="usertype=== 'profile'"></app-profile>
+        <div class="sidebar-middle">
+            <div class="top-middle">
+                <p>Main Menu</p>
+                <ul class="sidebar-menu">
+                    <li [class.active-nav]="usertype === 'home-layout'" (click)="addActive('home-layout')">
+                        <img src="assets/icons/dashboard_blue.svg" class="menu-icon" />
+                        <a class="menu-link" (click)="onclick('home-layout')">Dashboard</a>
+                    </li>
+                    <li [class.active]="activeDropdown==='hospital-organization'"
+                        (click)="toggleDropdown('hospital-organization')" id="dropdown-parent">
+        <div class="main-link">
+            <img src="assets/icons/hospital.svg" class="menu-icon">
+             <a class="menu-link" (click)="onclick('hospital-organization')">Hospitals</a>
+        </div>
+           <ul class="dropdown-menu"
+             [style.display]="activeDropdown === 'hospital-organization' ? 'flex' : 'none'">
+            <li [class.active-nav]="usertype==='overview-hospital'"
+                (click)="addActive('overview-hospital')">
+                <a class="menu-link" (click)="onclick('overview-hospital')">Overview</a>
+             </li>
+            <li [class.active-nav]="usertype==='addhospitalorganization'"
+                (click)="addActive('addhospitalorganization')">
+              <a class="menu-link" (click)="onclick('addhospitalorganization')">Add Hospital</a>
+             </li>
+           </ul>
+ </li>
+  <li [class.active]="activeDropdown==='insurance-organization'"
+        (click)="toggleDropdown('insurance-organization')" id="dropdown-parent">
+    <div class="main-link">
+         <img src="assets/icons/insurance.svg" class="menu-icon">
+          <a class="menu-link" (click)="onclick('insurance-organization')">Insurance</a>
+             </div>
+             <ul class="dropdown-menu"
+             [style.display]="activeDropdown === 'insurance-organization' ? 'flex' : 'none'">
+             <li [class.active-nav]="usertype==='overview-insurance'"
+                 (click)="addActive('overview-insurance')">
+                 <a class="menu-link" (click)="onclick('overview-insurance')">Overview</a>
+             </li>
+             <li [class.active-nav]="usertype==='add-insuranceorganization'"
+                 (click)="addActive('add-insuranceorganization')">
+                 <a class="menu-link" (click)="onclick('add-insuranceorganization')">Add Insurance</a>
+             </li>
+         </ul>
+   </li>
+     <li [class.active-nav]="usertype==='activity'" (click)="addActive('activity')">
+        <img src="assets/icons/reports.svg" class="menu-icon">
+        <a class="menu-link" (click)="onclick('activity')">Reports</a>
+        </li>
+    </ul>
+ </div>
+
+<div class="bottom-middle">
+    <p>Preferences</p>
+    <ul class="sidebar-menu">
+        <li [class.active-nav]="usertype==='settings'"(click)="addActive('settings')">
+             <img src="assets/icons/settings.svg" class="menu-icon">
+        <a class="menu-link"(click)="onclick('settings')">Settings</a>
+         </li>
+        <li [class.active-nav]="usertype==='profile'"(click)="addActive('profile')">
+            <img src="assets/icons/profile.svg" class="menu-icon">
+        <a class="menu-link" (click)="onclick('profile')">Profile</a>
+        </li>
+        <li [class.active-nav]="usertype==='helpcenter'" (click)="addActive('helpcenter')">
+          <img src="assets/icons/help.svg" class="menu-icon">
+         <a class="menu-link"(click)="onclick('helpcenter')">Help Center</a>
+        </li>
+    </ul>
+</div>
+ </div>
+        <div class="sidebar-bottom">
+            <div class="profile-details">
+                <div class="profile-details-text">
+                    <p class="name">Gabriel Ouma</p>
+                    <p class="role">UW·Admin</p>
+                </div>
+            </div>
+            <div class="logout-button">
+                <a (click)="openLogoutDialog()">
+                    <img src="assets/icons/logout.svg">
+                    Logout</a>
+            </div>
+
+        </div>
     </div>
+</div>
+<div class="content">
+    <app-home-layout *ngIf="usertype==='home-layout'"></app-home-layout>
+    <app-overview-hospital *ngIf="usertype==='overview-hospital'"></app-overview-hospital>
+    <app-addhospitalorganization *ngIf="usertype==='addhospitalorganization'"></app-addhospitalorganization>
+    <app-overview-insurance *ngIf="usertype==='overview-insurance'"></app-overview-insurance>
+    <app-add-insuranceorganization-details *ngIf="usertype==='add-insuranceorganization'"></app-add-insuranceorganization-details>
+    <app-activity *ngIf="usertype==='activity'"></app-activity>
+    <app-settings *ngIf="usertype==='settings'"></app-settings>
+    <app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
+    <app-helpcenter *ngIf="usertype==='helpcenter'"></app-helpcenter>
+    <app-profile *ngIf="usertype=== 'profile'"></app-profile>
+</div>

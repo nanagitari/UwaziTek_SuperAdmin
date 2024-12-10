@@ -1,0 +1,219 @@
+.content{
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+    /* background-color: #f4f4f4; */
+}
+
+.page-title{
+    color: #0F2473;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.page-description .breadcrumbs{
+    color: #9B9B9B;
+}
+
+.page-description .breadcrumbs span{
+    color: #0F2473;
+}
+
+.top-section{
+    /* background-color: #00082D; */
+    margin-left: -20px;
+    margin-top: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    color: #0F2473;
+    /* height: 30%; */
+}
+
+.head-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.head-section .search-bar{
+    padding: 8px 20px;
+    width: 400px;
+    background-color: transparent;
+    border: 2px solid rgba(15, 36, 115, 0.2);
+    border-radius: 8px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.head-section .search-bar::placeholder{
+    color: rgba(15, 36, 115, 0.2);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.notification-area{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.notification-area img{
+    height: 25px;
+    cursor: pointer;
+}
+
+.top-section .text-section{
+    font-size: 14px;
+    color: #9B9B9B;
+    font-weight: 500;
+}
+
+.top-section .text-section .welcome-text{
+    color: #FFFFFF;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+
+.cards-area{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    /* justify-content: space-between; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+
+.cards{
+    display: flex;
+    gap: 30px;
+}
+
+#add-hospital-button{
+    padding: 10px 40px;
+    text-align: center;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    color: #F0F0F0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0F2473;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 200px;
+    /* height: 50px; */
+    padding: 10px 20px;
+    border: 1px solid rgba(15, 36, 115, 0.3);
+    border-radius: 12px;
+    background-color: rgba(15, 36, 115, 0.05);
+}
+
+.card .top-text{
+    color: #0F2473;
+}
+
+
+.card .bottom-text{
+    color: #0F2473;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.table-top{
+    border: 1px solid rgba(0, 8, 45, 0.2);
+    border-bottom: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px 20px;
+    width: 95.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-top .claim-head{
+    font-size: 25px;
+    font-weight: 700;
+    color: #00082D;
+}
+
+.table-top .claim-desc{
+    font-size: 14px;
+    color: #444444;
+    font-weight:500;
+}
+
+.table-top .right-area{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #00082D;
+    margin-right: 20px;
+}
+
+.table-top .right-area .link-out{
+    height: 20px;
+}
+
+
+table {
+    width: 95.5%;
+    border-spacing: 0; /* Ensures no gaps between table cells */
+    border: 1px solid rgba(0, 8, 45, 0.2); /* Semi-transparent border */
+    border-radius: 10px; 
+    border-top: none;
+    /* border-top-left-radius: none;
+    border-top-right-radius: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px; */
+    overflow: hidden; /* Ensures content fits within rounded corners */
+}
+
+th {
+    background-color: #0F2473;
+    color: #FFFFFF;
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+    height: 30px;
+}
+
+td {
+    padding: 10px;
+    font-size: 14px;
+
+}
+
+/* Alternating row colors */
+tr:nth-child(even) {
+    background-color: rgba(15, 36, 115, 0.05); /* Light grey */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* White */
+}
+
+/* Hover effect */
+tr:hover {
+    background-color: rgba(15, 36, 115, 0.2); /* Slightly darker grey */
+}
+
+/* Remove vertical borders */
+td, th {
+    border: none;
+}

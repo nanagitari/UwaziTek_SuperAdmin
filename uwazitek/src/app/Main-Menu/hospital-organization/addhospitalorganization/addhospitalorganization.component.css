@@ -1,0 +1,145 @@
+.content{
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  /* background-color: #f4f4f4; */
+}
+
+.page-title{
+  color: #0F2473;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.page-description .breadcrumbs{
+  color: #9B9B9B;
+}
+
+.page-description .breadcrumbs span{
+  color: #0F2473;
+}
+
+.top-section{
+  /* background-color: #00082D; */
+  margin-left: -20px;
+  margin-top: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  color: #0F2473;
+  /* height: 30%; */
+}
+
+.head-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.head-section .search-bar{
+  padding: 8px 20px;
+  width: 400px;
+  background-color: transparent;
+  border: 2px solid rgba(15, 36, 115, 0.2);
+  border-radius: 8px;
+  color: #000000;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.head-section .search-bar::placeholder{
+  color: rgba(15, 36, 115, 0.2);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.notification-area{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notification-area img{
+  height: 25px;
+  cursor: pointer;
+}
+
+.top-section .text-section{
+  font-size: 14px;
+  color: #9B9B9B;
+  font-weight: 500;
+}
+
+.top-section .text-section .welcome-text{
+  color: #FFFFFF;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+
+.form-container {
+    /* width: 400px; */
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  
+  input, select {
+    width: 400px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(15, 36, 115, 0.2);
+    border-radius: 8px;
+    font-family: "DM Sans", sans-serif;
+  }
+  
+  button {
+    padding: 10px 40px;
+    text-align: center;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  button[type="button"] {
+    background-color: #0F2473;
+    color: #FFFFFF;
+    font-weight: bold;
+  }
+  
+  button[type="submit"] {
+    background-color: #0F2473;
+    color: #FFFFFF;
+    font-weight: bold;
+  }
+  
+  .button-container {
+    text-align: center;
+  }
+  button :hover{
+    color:rgb(30, 30, 207);
+  }
+
+  .input-group{
+    display: flex;
+    gap: 20px;
+  }

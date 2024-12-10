@@ -1,0 +1,101 @@
+<div class="main-container">
+  <div class="sidebar" (click)="handleIconClick()">
+      <div class="sidebar-header">
+          <img src="assets/Organization Logo.png" alt="" id="sidebar-logo">
+      </div>
+
+      <div class="sidebar-middle">
+          <div class="top-middle">
+              <p>Main Menu</p>
+              <ul class="sidebar-menu">
+                  <li [class.active-nav]="usertype === 'hospitalhome'" (click)="addActive('hospitalhome')">
+                      <img src="assets/icons/dashboard_blue.svg" class="menu-icon" />
+                      <a class="menu-link" (click)="onclick('hospitalhome')">Dashboard</a>
+                  </li>
+                  <li [class.active]="activeDropdown==='pre-request'"
+                      (click)="toggleDropdown('pre-request')" id="dropdown-parent">
+      <div class="main-link">
+          <img src="assets/icons/hospital.svg" class="menu-icon">
+           <a class="menu-link" (click)="onclick('pre-request')">Pre-Authorization</a>
+      </div>
+         <ul class="dropdown-menu"
+           [style.display]="activeDropdown === 'pre-request' ? 'flex' : 'none'">
+          <li [class.active-nav]="usertype==='overview-request'"
+              (click)="addActive('overview-request')">
+              <a class="menu-link" (click)="onclick('overview-request')">Overview</a>
+           </li>
+          <li [class.active-nav]="usertype==='send-request'"
+              (click)="addActive('send-request')">
+            <a class="menu-link" (click)="onclick('send-request')">Send Request</a>
+           </li>
+         </ul>
+</li>
+<li [class.active]="activeDropdown==='claims'"
+      (click)="toggleDropdown('claims')" id="dropdown-parent">
+  <div class="main-link">
+       <img src="assets/icons/insurance.svg" class="menu-icon">
+        <a class="menu-link" (click)="onclick('claims')">Claims</a>
+           </div>
+           <ul class="dropdown-menu"
+           [style.display]="activeDropdown === 'claims' ? 'flex' : 'none'">
+           <li [class.active-nav]="usertype==='overview-claims'"
+               (click)="addActive('overview-claims')">
+               <a class="menu-link" (click)="onclick('overview-claims')">Overview</a>
+           </li>
+           <li [class.active-nav]="usertype==='upload-invoice'"
+               (click)="addActive('upload-invoice')">
+               <a class="menu-link" (click)="onclick('upload-invoice')">Upload Invoice</a>
+           </li>
+       </ul>
+ </li>
+   <li [class.active-nav]="usertype==='hopsital-user'" (click)="addActive('hospital-user')">
+      <img src="assets/icons/reports.svg" class="menu-icon">
+      <a class="menu-link" (click)="onclick('hospital-user')">Add Hospital User</a>
+      </li>
+  </ul>
+</div>
+
+<div class="bottom-middle">
+  <p>Preferences</p>
+  <ul class="sidebar-menu">
+      <li [class.active-nav]="usertype==='settings'"(click)="addActive('settings')">
+           <img src="assets/icons/settings.svg" class="menu-icon">
+      <a class="menu-link"(click)="onclick('settings')">Settings</a>
+       </li>
+      <li [class.active-nav]="usertype==='profile'"(click)="addActive('profile')">
+          <img src="assets/icons/profile.svg" class="menu-icon">
+      <a class="menu-link" (click)="onclick('profile')">Profile</a>
+      </li>
+      <li [class.active-nav]="usertype==='helpcenter'" (click)="addActive('helpcenter')">
+        <img src="assets/icons/help.svg" class="menu-icon">
+       <a class="menu-link"(click)="onclick('helpcenter')">Help Center</a>
+      </li>
+  </ul>
+</div>
+</div>
+      <div class="sidebar-bottom">
+          <div class="profile-details">
+              <div class="profile-details-text">
+                  <p class="name">Gabriel Ouma</p>
+                  <p class="role">UW·Admin</p>
+              </div>
+          </div>
+          <div class="logout-button">
+              <a (click)="openLogoutDialog()">
+                  <img src="assets/icons/logout.svg">
+                  Logout</a>
+          </div>
+
+      </div>
+  </div>
+</div>
+<div class="content">
+  <app-hospitalhome *ngIf="usertype==='hospitalhome'"></app-hospitalhome>
+  <app-overview-request *ngIf="usertype==='overview-request'"></app-overview-request>
+  <app-send-request *ngIf="usertype==='send-request'"></app-send-request>
+  <app-upload-invoice *ngIf="usertype==='upload-invoice'"></app-upload-invoice>
+  <app-overview-claims *ngIf="usertype==='overview-claims'"></app-overview-claims>
+  <app-hospital-user *ngIf="usertype==='hospital-user'"></app-hospital-user>
+  <app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>
+  
+</div>

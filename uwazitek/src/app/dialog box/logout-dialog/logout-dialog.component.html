@@ -1,8 +1,8 @@
 <div class="dialog-container">
-<p mat-dialog-title>Confirmation</p>
-    <div mat-dialog-content>Are you sure you want to log out?</div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">No</button>
-      <button mat-button (click)="onYesClick()">Yes</button>
-    </div>
+  <p class="dialog-title">Confirmation</p>
+  <p class="dialog-content">Are you sure you want to log out?</p>
+  <div class="dialog-actions">
+    <button (click)="onYesClick()" id="log-me-out">Log me out</button>
+    <button (click)="onNoClick()" id="keep-me-in">Keep Me In</button>
+  </div>
 </div>

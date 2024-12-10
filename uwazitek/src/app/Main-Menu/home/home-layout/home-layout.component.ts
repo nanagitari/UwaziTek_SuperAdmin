@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,Router } from '@angular/router';
-import { LucideAngularModule, BellIcon, MailIcon, CalendarClockIcon } from 'lucide-angular';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { ReportService } from '../../../service/report.service';
+//import { ReportService } from '../../../service/report.service';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-home-layout',
   standalone: true,
-  imports: [CommonModule, RouterModule, LucideAngularModule, 
-    MatCardModule, MatIconModule,],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl:'./home-layout.component.html',
   styleUrls: ['./home-layout.component.css'],
 })
 export class HomeLayoutComponent implements OnInit {
+searchQuery: any;
+
+filterUsers() {
+throw new Error('Method not implemented.');
+}
   public userName: string = ''; 
   public showContactInfo: boolean = false; 
   currentTime: string = '';
@@ -24,25 +26,11 @@ export class HomeLayoutComponent implements OnInit {
     { phone: '+254712345678 / +2547895635' },
   ];
 
-  BellIcon = BellIcon; 
-  MailIcon = MailIcon;
-  CalendarClockIcon = CalendarClockIcon;
-
+  
   
   showNotifications: boolean = false;
-  notifications = [
-    { message: 'New user registered' },
-    { message: 'System maintenance scheduled' },
-    { message: 'Password updated successfully' },
-  ];
-
-  statistics = [
-    { title: 'Total Hospitals', count: 13, icon: 'local_hospital', color: 'primary', route: '/view-users' },
-    { title: 'Total Insurances', count: 10, icon: 'security', color: 'accent', route: '/view-users' },
-    {title: 'Total ClaimReports', count: 3, icon: 'report', color:'primary', route:'./activity'},
-  ];
-notificationCount: any;
-  constructor (private router: Router,private reportService: ReportService){}
+ 
+  constructor (private router: Router){}
 
   ngOnInit(): void {
     this.userName = localStorage.getItem('userName') || 'SuperAdmin' ;
@@ -68,5 +56,59 @@ notificationCount: any;
   getstatistics(){
     
   }
+  getBadgeClass(OveralStatus: string): string {
+    switch (OveralStatus) {
+      case 'Fraud':
+        return 'badge-red';
+      case 'Approvable':
+        return 'badge-green';
+      case 'Risky':
+        return 'badge-orange';
+      default:
+        return 'badge-default';
+    }
+  }
+
+  claimReports = [
+    {
+      claimId: 'CR12345',
+      claimantName: 'John Doe',
+      claimDate: '2024-10-10',
+      claimStatus: 'Risky',
+      insuranceName: 'ABC Insurance',
+      claimAmount: 5000,
+      hospitalName: 'General Hospital',
+    },
+    {
+      claimId: 'CR12346',
+      claimantName: 'Jane Smith',
+      claimDate: '2024-10-12',
+      claimStatus: 'Fraud',
+      insuranceName: 'XYZ Insurance',
+      claimAmount: 2500,
+      hospitalName: 'City Health Center',
+    },
+    {
+      claimId: 'CR12347',
+      claimantName: 'Emily White',
+      claimDate: '2024-10-15',
+      claimStatus: 'Approvable',
+      insuranceName: 'Global Assurance',
+      claimAmount: 10000,
+      hospitalName: 'National Medical',
+    },
+  ];
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
   
 }

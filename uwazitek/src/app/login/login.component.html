@@ -1,49 +1,51 @@
 <body>
-  <main>
-  <div class="right">
+    <div class="login-page-container">
+        <div class="left-section">
+            <img src="assets/lady_tablet.png" alt="">
+        </div>
 
-      <header class="brand-name">
-      <img src="assets/logo.png" alt="" srcset="" id="logo-image">
-      </header>
-      <section class="content">
-      </section>
-    <section class="login-container">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" formControlName="email" required>
-            <div *ngIf="email?.invalid && email?.touched">
-              <small *ngIf="email?.errors?.['required']">Email is required</small>
-                <small *ngIf="email?.errors?.['email']"> correct email format</small>
+        <div class="right-section">
+            <img src="assets/logo uwazitek.png " alt="" id="logo-image">
+            <div class="header-text">
+                <p id="top-words">Welcome to Uwazitek S·Admin</p>
+                <p id="bottom-words">Login to continue</p>
             </div>
-            </div>
-      
-          <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" formControlName="password" required minlength="5">
-            <div *ngIf="password?.invalid && password?.touched">
-              <small *ngIf="password?.errors?.['required']">Password is required</small>
-              <small *ngIf="password?.errors?.['minlength']">Minimum of 5 characters </small>
-            </div>
-          </div>
-      
-          <div>
-            <button class="login" type="submit">LOG IN</button>
-          </div>
-          <nav>
-            <p>Don't have an Account</p>
-            <a routerLink="/signup">Signup</a>
-            <br>
-            <p>Forgot your password</p>
-            <a routerLink="/resetpassword">Reset Password</a>
-          </nav>
-          <div  id="form-feedback">
-           <div *ngIf="loginError" class="error-message">{{loginError}}</div>
-           <div *ngIf="loginSuccess" class="success-message">{{loginSuccess}}</div>
-          </div>
-        </form>
-    </section>
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div>
+                    <label for="role">Role:</label>
+                    <br>
+                    <select id="role" [(ngModel)]="loginData.role" formControlName="role" required>
+                        <option value="super_admin">Super Admin</option>
+                        <option value="hospital_admin">Hospital Admin</option>
+                        <option value="insurance_admin">Insurance Admin</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="email">Email:</label>
+                    <br>
+                    <input type="email" id="email" formControlName="email" required autocomplete="username">
+                    <div *ngIf="email?.invalid && email?.touched">
+                        <small *ngIf="email?.errors?.['required']">Email is required</small>
+                        <small *ngIf="email?.errors?.['email']"> correct email format</small>
+                    </div>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <br>
+                    <input type="password" id="password" formControlName="password" required minlength="5">
+                    <div *ngIf="password?.invalid && password?.touched">
+                        <small *ngIf="password?.errors?.['required']">Password is required</small>
+                        <small *ngIf="password?.errors?.['minlength']">Minimum of 5 characters </small>
+                    </div>
+                </div>
+                <input type="submit" id="submit-button" value="Submit Details -->">
+                <div id="form-feedback">
+                    <div *ngIf="loginError" class="error-message">{{loginError}}</div>
+                    <div *ngIf="loginSuccess" class="success-message">{{loginSuccess}}</div>
+                </div>
+            </form>
+        </div>
     </div>
-  </main>
-
 </body>

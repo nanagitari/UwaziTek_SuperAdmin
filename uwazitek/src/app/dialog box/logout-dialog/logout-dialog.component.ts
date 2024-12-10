@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import { RouterModule,Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { RouterModule,Router } from '@angular/router';
   imports: [RouterModule],
   templateUrl: './logout-dialog.component.html',
   styleUrl: './logout-dialog.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class LogoutDialogComponent {
   constructor(public dialogRef: MatDialogRef<LogoutDialogComponent>, private router:Router) {}
