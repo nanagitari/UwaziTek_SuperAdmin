@@ -7,21 +7,11 @@
         <div class="right-section">
             <img src="assets/logo uwazitek.png " alt="" id="logo-image">
             <div class="header-text">
-                <p id="top-words">Welcome to Uwazitek S·Admin</p>
+                <p id="top-words">Welcome to Uwazitek Admin</p>
                 <p id="bottom-words">Login to continue</p>
             </div>
             <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                <div>
-                    <label for="role">Role:</label>
-                    <br>
-                    <select id="role" [(ngModel)]="loginData.role" formControlName="role" required>
-                        <option value="super_admin">Super Admin</option>
-                        <option value="hospital_admin">Hospital Admin</option>
-                        <option value="insurance_admin">Insurance Admin</option>
-                    </select>
-                </div>
-
-
+                
                 <div>
                     <label for="email">Email:</label>
                     <br>

@@ -5,7 +5,7 @@ import { provideRouter, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { importProvidersFrom } from '@angular/core';
-//import { AdminDashboardModule } from './app/admin-dashboard/admin-dashboard.module';
+import { AdminDashboardModule } from './app/super-admin-dashboard/admin-dashboard.module';
 import { SettingsModule } from './app/Preference/settings/settings.module';
 import { AuthService } from './app/service/auth.service';
 
@@ -14,7 +14,7 @@ bootstrapApplication(AppComponent,{
   providers: [
     importProvidersFrom(
       HttpClientModule,
-      //AdminDashboardModule,
+      AdminDashboardModule,
        SettingsModule, AuthService
     ),
     provideRouter(routes), provideAnimationsAsync()

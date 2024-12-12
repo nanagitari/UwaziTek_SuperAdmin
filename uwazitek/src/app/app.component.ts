@@ -3,6 +3,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminDashboardModule } from './super-admin-dashboard/admin-dashboard.module';
+
 
 
 
@@ -14,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     RouterModule,
     RouterOutlet,HttpClientModule,
+    AdminDashboardModule
     ],
   templateUrl:'./app.component.html',
   styleUrls: ['./app.component.css']

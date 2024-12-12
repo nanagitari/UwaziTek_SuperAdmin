@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import { Component, ViewEncapsulation } from '@angular/core';
+import {MatDialogRef,MatDialogModule,} from '@angular/material/dialog';
 import { RouterModule,Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-logout-dialog',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, MatDialogModule,],
   templateUrl: './logout-dialog.component.html',
   styleUrl: './logout-dialog.component.css',
   encapsulation: ViewEncapsulation.None,
