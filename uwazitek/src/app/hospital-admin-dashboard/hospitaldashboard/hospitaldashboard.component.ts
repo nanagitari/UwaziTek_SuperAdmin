@@ -5,21 +5,23 @@ import { CommonModule } from '@angular/common';
 import { HospitalhomeComponent } from '../hospitalhome/hospitalhome.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HospitalUserComponent } from '../hospital-user/hospital-user.component';
-
 import { OverviewRequestComponent } from '../../insurance-admin-dashboard/overview-request/overview-request.component';
-
 import { OverviewClaimsComponent } from "../../insurance-admin-dashboard/overview-claims/overview-claims.component";
 import { LogoutDialogComponent } from '../../dialog box/logout-dialog/logout-dialog.component';
 import { PreRequestComponent } from '../pre-request/pre-request.component';
+import { SettingsComponent } from '../../Preference/settings/settings.component';
+import { HelpcenterComponent } from '../../Preference/helpcenter/helpcenter.component';
 
 
 
 @Component({
-  selector: 'app-hospitalDashboard',
+  selector: 'app-hospitaldashboard',
   standalone: true,
   imports: [RouterModule, CommonModule, HospitalhomeComponent,
     HospitalUserComponent, OverviewRequestComponent,
-     OverviewClaimsComponent, LogoutDialogComponent, PreRequestComponent],
+     OverviewClaimsComponent, LogoutDialogComponent, 
+     PreRequestComponent,
+    HelpcenterComponent,SettingsComponent ],
   templateUrl: './hospitaldashboard.component.html',
   styleUrls: ['./hospitaldashboard.component.css'] 
 })

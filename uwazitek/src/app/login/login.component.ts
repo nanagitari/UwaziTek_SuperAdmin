@@ -20,11 +20,7 @@ export class LoginComponent {
   loginError: string | null = null;
   loginSuccess: string | null = null;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(private formBuilder: FormBuilder,private authService: AuthService,private router: Router) {
     
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -40,17 +36,11 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password');
   }
-
-  get role() {
-    return this.loginForm.get('role');
-  }
-
   onLogin(): void {
     if (this.loginForm.valid) {
       const loginData = {
         email: this.loginForm.value.email,
         password: this.loginForm.value.password,
-        role: this.loginForm.value.role,
       };
 
       console.log('Login Data:', loginData); 

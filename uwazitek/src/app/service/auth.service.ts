@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   
-  login(data: { email: string; password: string; role: '' }): Observable<any> {
+  login(data: { email: string; password: string; }): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });

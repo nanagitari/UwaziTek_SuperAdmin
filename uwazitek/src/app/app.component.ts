@@ -3,7 +3,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminDashboardModule } from './super-admin-dashboard/admin-dashboard.module';
+//import { AdminDashboardModule } from './super-admin-dashboard/admin-dashboard.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -15,9 +16,11 @@ import { AdminDashboardModule } from './super-admin-dashboard/admin-dashboard.mo
   imports: [
     ReactiveFormsModule,
     RouterModule,
-    RouterOutlet,HttpClientModule,
-    AdminDashboardModule
-    ],
+    RouterOutlet,
+    CommonModule,
+   ],
+
+  providers: [HttpClientModule],
   templateUrl:'./app.component.html',
   styleUrls: ['./app.component.css']
 })

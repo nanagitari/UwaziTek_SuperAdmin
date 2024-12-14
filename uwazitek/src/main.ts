@@ -5,8 +5,7 @@ import { provideRouter, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { importProvidersFrom } from '@angular/core';
-import { AdminDashboardModule } from './app/super-admin-dashboard/admin-dashboard.module';
-import { SettingsModule } from './app/Preference/settings/settings.module';
+//import { SuperAdminDashboardModule } from './app/super-admin-dashboard/super-admin-dashboard.module';
 import { AuthService } from './app/service/auth.service';
 
 
@@ -14,8 +13,9 @@ bootstrapApplication(AppComponent,{
   providers: [
     importProvidersFrom(
       HttpClientModule,
-      AdminDashboardModule,
-       SettingsModule, AuthService
+
+       //SuperAdminDashboardModule, 
+       AuthService
     ),
     provideRouter(routes), provideAnimationsAsync()
   ]

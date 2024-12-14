@@ -12,14 +12,14 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-insurance-dashboard',
   standalone: true,
-  imports: [ RouterModule, CommonModule, AddUserComponent,
+  imports: [ RouterModule,CommonModule, AddUserComponent,
      RegisterCustomerComponent,PreRequestComponent,InsurancehomeComponent],
   templateUrl: './insurance-dashboard.component.html',
   styleUrl: './insurance-dashboard.component.css'
 })
 export class InsuranceDashboardComponent {
   isDropdownclicked= false;
-  usertype: string='hospitalhome';
+  usertype: string='insurancehome';
   
   activeTab: string= '';
 activeDropdown: string | null = null;

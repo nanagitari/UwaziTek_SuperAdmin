@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule
-    ],
-  declarations: [],
-  exports: [],
+  ]
 })
-export class AdminDashboardModule { }
+export class SuperAdminDashboardModule { }

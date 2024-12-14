@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +8,7 @@
 /* Body Styling */
 body {
     display: flex;
-    /* min-height: 100vh; */
+    
 }
 
 /* Sidebar Styling */
@@ -38,8 +35,7 @@ body {
 
 .sidebar-header {
     margin-bottom: 10px;
-    /* text-align: center; */
-    /* font-size: 1.5rem; */
+    
 }
 
 #sidebar-logo {
@@ -62,10 +58,10 @@ body {
 }
 
 .sidebar-menu li:hover {
-    /* border: 1px solid #0F2473; */
+    
     color: #0F2473;
     background-color: rgba(18, 179, 253, 0.2);
-    /* cursor: pointer; */
+    
 }
 
 .sidebar-menu .menu-icon{
@@ -195,8 +191,7 @@ body {
 /* Main Content Styling */
 .content {
     margin-left: 200px;
-    /* Matches the sidebar width */
     padding: 20px;
     flex-grow: 1;
-    /* background-color: #f4f4f4; */
+    
 }
