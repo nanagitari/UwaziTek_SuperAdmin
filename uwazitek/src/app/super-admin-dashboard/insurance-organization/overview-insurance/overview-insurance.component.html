@@ -25,28 +25,19 @@
                     <p>Total No. of Insurances</p>
                 </div>
                 <div class="bottom-text">
-                    <p>362</p>
+                    <p>12</p>
                 </div>
             </div>
 
             <div class="hospitals-card card">
                 <div class="top-text">
-                    <p>Total No. of Insurances</p>
+                    <p>Total No. of Insurance Admins</p>
                 </div>
                 <div class="bottom-text">
-                    <p>362</p>
+                    <p>12</p>
                 </div>
             </div>
 
-
-            <div class="hospitals-card card">
-                <div class="top-text">
-                    <p>Total No. of Insurances</p>
-                </div>
-                <div class="bottom-text">
-                    <p>362</p>
-                </div>
-            </div>
         </div>
 
         <input type="submit" value="Add Insurance +" id="add-hospital-button">
@@ -56,72 +47,23 @@
     </div>
 
     <div class="table-area">
-        <!-- <div class="table-top">
-            <div class="left-area">
-                <p class="claim-head">Claim Requests</p>
-                <p class="claim-desc">Submitted by registered hospital admins</p>
-            </div>
-            <div class="right-area">
-                <p class="view-claims">View Claims</p>
-                <img src="./images/icons/link-out.svg" alt="" class="link-out">
-            </div>
-        </div> -->
-
         <table>
             <thead>
-                <tr>
-                    <th> <input type="checkbox" name="" id=""> </th>
-                    <th>Insurance Name</th>
-                    <th>Insurance Address</th>
-                    <th>Insurance Branch</th>
-                    <th>Insurance Category</th>
-                </tr>
+              <tr>
+                <th><input type="checkbox" name="" id="" /></th>
+                <th>Insurance Name</th>
+                <th>Email Address</th>
+                <th>Status</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> <input type="checkbox" name="" id=""> </td>
-                    <td>Nairobi Hospital</td>
-                    <td>Nairobi</td>
-                    <td>Upperhill</td>
-                    <td>Private</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox" name="" id=""> </td>
-                    <td>Nairobi Hospital</td>
-                    <td>Nairobi</td>
-                    <td>Upperhill</td>
-                    <td>Private</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox" name="" id=""> </td>
-                    <td>Nairobi Hospital</td>
-                    <td>Nairobi</td>
-                    <td>Upperhill</td>
-                    <td>Private</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox" name="" id=""> </td>
-                    <td>Nairobi Hospital</td>
-                    <td>Nairobi</td>
-                    <td>Upperhill</td>
-                    <td>Private</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox" name="" id=""> </td>
-                    <td>Nairobi Hospital</td>
-                    <td>Nairobi</td>
-                    <td>Upperhill</td>
-                    <td>Private</td>
-                </tr>
-                <tr>
-                    <td> <input type="checkbox" name="" id=""> </td>
-                    <td>Nairobi Hospital</td>
-                    <td>Nairobi</td>
-                    <td>Upperhill</td>
-                    <td>Private</td>
-                </tr>
+              <tr *ngFor="let insurance of insuranceData">
+                <td><input type="checkbox" name="" id="" /></td>
+                <td>{{ insurance.name }}</td>
+                <td>{{ insurance.email_address }}</td>
+                <td>{{ insurance.status }}</td>
+              </tr>
             </tbody>
-        </table>
-
+          </table>
     </div>
 </div>

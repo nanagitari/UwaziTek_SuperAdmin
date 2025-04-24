@@ -4,11 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-insuranceorganization-details',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './add-insuranceorganization-details.component.html',
-  styleUrl: './add-insuranceorganization-details.component.css'
+    selector: 'app-add-insuranceorganization-details',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './add-insuranceorganization-details.component.html',
+    styleUrl: './add-insuranceorganization-details.component.css'
 })
 export class AddInsuranceorganizationDetailsComponent {
   insuranceForm: FormGroup;
@@ -16,14 +15,16 @@ export class AddInsuranceorganizationDetailsComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.insuranceForm = this.formBuilder.group({
-      // Step 1: Hospital Details
-      name: ['', Validators.required],
-      email_address: ['', [Validators.required, Validators.email]],
-      mobile_numberhospital: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      headquarter_location: ['', Validators.required],
-    
 
-      // Step 2: Hospital Admin Registration
+  type: ['insurance', Validators.required],
+  name: ['', Validators.required],
+  email_address: ['', [Validators.required, Validators.email]],
+  mobile_number_hospital: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+  head_quarter_location: ['', Validators.required],
+  hospital_category: ['', Validators.required],
+  kra_pin:['',Validators.required],
+
+      
   user_name: ['', Validators.required],
   first_name: ['', Validators.required],
   second_name: [''],

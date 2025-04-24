@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router'; 
 import { LoginComponent } from './login/login.component';
-import { HomeLayoutComponent } from './super-admin-dashboard/home-layout/home-layout.component';
+// import { HomeLayoutComponent } from './super-admin-dashboard/home-layout/home-layout.component';
 import { LogoutDialogComponent } from './dialog box/logout-dialog/logout-dialog.component';
 import { ActivityComponent } from './super-admin-dashboard/activity/activity.component';
 import { SettingsComponent } from './Preference/settings/settings.component';
@@ -16,6 +16,8 @@ import { HospitalDashboardComponent } from './hospital-admin-dashboard/hospitald
 import { InsuranceDashboardComponent } from './insurance-admin-dashboard/insurance-dashboard/insurance-dashboard.component';
 import { HospitalhomeComponent } from './hospital-admin-dashboard/hospitalhome/hospitalhome.component';
 import { AdmindashboardComponent } from './super-admin-dashboard/admindashboard/admindashboard.component';
+import { HospitalOrganizationModule } from './super-admin-dashboard/hospital-organization/hospital-organization.module';
+import { InsuranceOrganizationModule } from './super-admin-dashboard/insurance-organization/insurance-organization.module';
 
 
 
@@ -24,7 +26,8 @@ export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' }, 
     {path:'login',component:LoginComponent}, 
     {path:'admindashboard', component:AdmindashboardComponent},
-    {path:'home-layout', component: HomeLayoutComponent},
+    {path:'hospitaldashboard', component:HospitalDashboardComponent},
+    {path:'insurance-dashboard', component:InsuranceDashboardComponent},   
     {path:'overview-hospital', component:OverviewHospitalComponent},
     {path:'addhospitalorganization',component:AddhospitalorganizationComponent},   
     {path:'overview-insurance', component:OverviewInsuranceComponent},

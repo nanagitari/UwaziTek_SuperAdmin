@@ -1,28 +1,32 @@
 <div class="claim-reports-container">
-  <h2>Claim Reports</h2>
+  <h2>Fraud Detection Report</h2>
+  <p><strong>Hospital Name:</strong> {{ metadata['Hospital Name'] }}</p>
+  <p><strong>Patient Name:</strong> {{ metadata['Patient Name'] }}</p>
+  <p><strong>Invoice Number:</strong> {{ metadata['Invoice No'] }}</p>
+  <p><strong>Invoice Date:</strong> {{ metadata['Invoice Date'] }}</p>
+
   <table>
     <thead>
       <tr>
-        <th>Claim ID</th>
-        <th>Claimant Name</th>
-        <th>Claim Date</th>
-        <th>Status</th>
-        <th>Insurance Name</th>
-        <th>Claim Amount ($)</th>
-        <th>Hospital Name</th>
+        <th>Description</th>
+        <th>Fraud Category</th>
+        <th>Base Cost ($)</th>
+        <th>Invoice Cost ($)</th>
+        <th>Price Difference ($)</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let report of claimReports">
-        <td> <span [ngClass]="getBadgeClass(report.claimStatus)" class="badge">{{ report.claimId }}</span></td>
-        <td>{{ report.claimantName }}</td>
-        <td>{{ report.claimDate }}</td>
-        <td>{{ report.claimStatus }}</td>
-        <td>{{ report.insuranceName }}</td>
-        <td>{{ report.claimAmount | currency }}</td>
-        <td>{{ report.hospitalName }}</td>
+      <tr *ngFor="let result of fraudDetectionResults">
+        <td>{{ result.Description }}</td>
+        <td [ngClass]="getFraudCategoryClass(result['Fraud Category'])">{{ result['Fraud Category'] || 'N/A' }}</td>
+        <td>{{ result['Base Cost'] || 'N/A' }}</td>
+        <td>{{ result['Invoice Cost'] || 'N/A' }}</td>
+        <td>{{ result['Price Difference'] || 'N/A' }}</td>
       </tr>
     </tbody>
   </table>
-</div>
 
+  <div class="overall-status" *ngIf="overallStatus">
+    <h3>Overall Status: {{ overallStatus }}</h3>
+  </div>
+</div>

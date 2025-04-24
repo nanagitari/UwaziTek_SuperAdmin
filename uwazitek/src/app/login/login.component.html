@@ -29,6 +29,9 @@
                         <small *ngIf="password?.errors?.['required']">Password is required</small>
                         <small *ngIf="password?.errors?.['minlength']">Minimum of 5 characters </small>
                     </div>
+                    <button type="button" class="toggle-password"(click)="togglePasswordVisibility()">
+                    <i [ngClass]="passwordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                    </button>
                 </div>
                 <input type="submit" id="submit-button" value="Submit Details -->">
                 <div id="form-feedback">

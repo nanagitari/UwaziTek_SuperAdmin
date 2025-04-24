@@ -1,1 +1,121 @@
-<p>insurancehome works!</p>
+<div class="top-section">
+    <div class="head-section">
+        <input type="text" class="search-bar" placeholder="Search here ..."[(ngModel)]="searchQuery" 
+        (input)="filterUsers()">
+
+        <div class="notification-area">
+            <img src="assets/icons/notifications.svg" alt="">
+            <span class="time">{{ currentTime }}</span>
+        </div>
+    </div>
+
+    <div class="text-section">
+        <p class="breadcrumbs">Dashboard <span>/ Overview</span></p>
+        <p class="welcome-text">Welcome back, Insurance Admin</p>
+    </div>
+</div>
+
+<div class="bottom-section">
+    <div class="cards-area">
+
+        <div class="hospitals-card card">
+            <div class="top-text">
+                <div class="left">
+                    <p class="numbers">13</p>
+                </div>
+                <div class="right">
+                    <div class="count-area">
+                        <p class="count">+12</p>
+                        <a href="overview-hospital"><img src="assets/icons/link-out.svg" alt="" class="link-out"></a>
+                    </div>
+                    <p>in the last 30 days</p>
+                </div>
+            </div>
+            <div class="bottom-text">
+                <p>No. of Pre-requests</p>
+            </div>
+        </div>
+
+        <div class="insurances-card card">
+            <div class="top-text">
+                <div class="left">
+                    <p class="numbers">9</p>
+                </div>
+                <div class="right">
+                    <div class="count-area">
+                        <p class="count">+7</p>
+                        <a href="/overview-insurance"><img src="assets/icons/link-out.svg" alt="" class="link-out"></a>
+                    </div>
+                    <p>in the last 30 days</p>
+                </div>
+            </div>
+            <div class="bottom-text">
+                <p>No. of Users on board</p>
+            </div>
+        </div>
+
+
+        <div class="invoices-card card">
+            <div class="top-text">
+                <div class="left">
+                    <p class="numbers">7</p>
+                </div>
+                <div class="right">
+                    <div class="count-area">
+                        <p class="count">+5</p>
+                        <a href="/reports"><img src="assets/icons/link-out.svg" alt="" class="link-out"></a>
+                    </div>
+                    <p>in the last 30 days</p>
+                </div>
+            </div>
+            <div class="bottom-text">
+                <p>No. of invoices processed</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="table-area">
+        <div class="table-top">
+            <div class="left-area">
+                <p class="claim-head">Claim Requests</p>
+                <p class="claim-desc">Submitted by registered hospital admins</p>
+            </div>
+            <div class="right-area">
+                <p class="view-claims">View Claims</p>
+                <img src="assets/icons/link-out.svg" alt="" class="link-out">
+            
+            </div>
+        </div>
+
+        <table>
+            <thead>
+              <tr>
+                  <th>Claim ID</th>
+                  <th>Claimant Name</th>
+                  <th>Claim Date</th>
+                  <th>Overal Status</th>
+                  <th>Insurance Name</th>
+                  <th>Claim Amount ($)</th>
+                  <th>Hospital Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let report of claimReports">
+                  <td> <span [ngClass]="getBadgeClass(report.claimStatus)" class="badge">{{ report.claimId }}</span></td>
+                  <td>{{ report.claimantName }}</td>
+                  <td>{{ report.claimDate }}</td>
+                  <td>{{ report.claimStatus }}</td>
+                  <td>{{ report.insuranceName }}</td>
+                  <td>{{ report.claimAmount | currency }}</td>
+                  <td>{{ report.hospitalName }}</td>
+                </tr>
+              </tbody> 
+
+        </table>
+
+    </div>
+</div>
+<div class="content">
+  
+</div>

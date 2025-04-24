@@ -4,11 +4,10 @@ import { RouterModule,Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-hospitalhome',
-  standalone: true,
-  imports: [CommonModule,FormsModule],
-  templateUrl: './hospitalhome.component.html',
-  styleUrl: './hospitalhome.component.css'
+    selector: 'app-hospitalhome',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './hospitalhome.component.html',
+    styleUrl: './hospitalhome.component.css'
 })
 export class HospitalhomeComponent implements OnInit {
 claimReports: any;

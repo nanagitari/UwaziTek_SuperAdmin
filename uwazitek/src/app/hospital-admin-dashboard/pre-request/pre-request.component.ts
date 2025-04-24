@@ -1,61 +1,50 @@
-//import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-//import { AuthService } from '../../auth.service';
-//import { FormService } from '../../form.service';
+import { ClaimsService } from '../../service/claims.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../service/auth.service';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-pre-request',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './pre-request.component.html',
-  styleUrl: './pre-request.component.css'
+    selector: 'app-pre-request',
+    imports: [CommonModule, FormsModule, ReactiveFormsModule],
+    templateUrl: './pre-request.component.html',
+    styleUrl: './pre-request.component.css'
 })
 export class PreRequestComponent implements OnInit {
   formData = {
-    insurance_id: '',
-    patientFullName: '',
-    typeOfPatient: '',
-    policy_number: ''
+    customer_id: ''
   };
   feedbackMessage: string | null = null;
-  insurances: any[] | undefined;
-  authService: any;
-  formService: any;
+  mappedData: any[] = [];
+  // requestForm: FormGroup;
 
-  constructor() {}
-
-  ngOnInit(): void {
-    this.loadInsurances();
-  }
-
-  loadInsurances(): void {
-    this.authService.getInsurance().subscribe(
-      (data: any[]) => {
-        this.insurances = data;
-      },
-      (error: any) => {
-        console.error('Error fetching insurances', error);
-      }
-    );
-  }
+  constructor(private claimsService: ClaimsService, private authService:AuthService,private formBuilder: FormBuilder) {
+  // this.requestForm = this.formBuilder.group({
+      
+  //   customer_id: ['', Validators.required],
+  //     });
+    }
+  ngOnInit(): void {}
 
   onSubmit() {
-    console.log('Selected Insurance ID:', this.formData.insurance_id);
   console.log('Form Data:', this.formData);
-    const token = this.authService.getToken(); // Ensure this method returns a valid token or null.
+    const token = this.authService.getToken(); 
     if (!token) {
       console.error('Authorization token is missing');
       this.feedbackMessage = 'Authorization token is missing';
-      return; // Stop further processing if no token is available.
+      return; 
     }
   
-    // Proceed with form submission if token is available
-    this.formService.submitForm(this.formData, token).subscribe({
+    
+    this.claimsService.sendPrerequest(this.formData,this.formData).subscribe({
       next: (response: any) => {
         console.log('Form submitted successfully', response);
+
+
         this.feedbackMessage = 'Form submitted successfully';
+        this.mappedData = this.mapResponseData(response);
         this.resetForm();
       },
       error: (error: any) => {
@@ -66,12 +55,18 @@ export class PreRequestComponent implements OnInit {
   }
   
   resetForm(): void {
-    this.formData = {
-      insurance_id: '',
-      patientFullName: '',
-      typeOfPatient: '',
-      policy_number: ''
-    };
-  }
-}
+    //this.formData = {
+      //customer_id: ''
 
+    };
+  
+  mapResponseData(response: any): any[] {
+  
+    return response.data.map((item: any) => ({
+      id: item.id,
+      description: item.description,
+      status: item.status,
+      date: item.date,
+    }));
+}
+}

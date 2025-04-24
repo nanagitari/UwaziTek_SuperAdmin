@@ -67,6 +67,9 @@
             "production": {
               "buildTarget": "uwazitek:build:production"
             },
+            "options": {
+           "proxyConfig": "proxy.conf.json"
+           },
             "development": {
               "buildTarget": "uwazitek:build:development"
             }

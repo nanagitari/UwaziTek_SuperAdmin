@@ -8,11 +8,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-settings',
-  standalone: true,
-  imports: [CommonModule, MatTabsModule, MatButtonModule],
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+    selector: 'app-settings',
+    imports: [CommonModule, MatTabsModule, MatButtonModule],
+    templateUrl: './settings.component.html',
+    styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent {
 

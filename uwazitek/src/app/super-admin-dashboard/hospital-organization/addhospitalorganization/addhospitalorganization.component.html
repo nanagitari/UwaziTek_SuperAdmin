@@ -5,7 +5,7 @@
       <p class="breadcrumbs">Hospital <span>/ Add New</span></p>
     </div>
 
-    <input type="text" class="search-bar" placeholder="Search here ...">
+    <!--<input type="text" class="search-bar" placeholder="Search here ...">-->
 
     <div class="notification-area">
       <img src="assets/icons/notifications_blue.svg" alt="">
@@ -23,17 +23,20 @@
       <label for="name">Hospital Name:</label>
       <input id="name" formControlName="name" type="text" placeholder="Enter hospital name" />
 
-      <label for="email">Email Address:</label>
+      <label for="email_address">Email Address:</label>
       <input id="email_address" formControlName="email_address" type="email" placeholder="Enter email address" />
 
-      <label for="mobile">Mobile Number:</label>
-      <input id="mobile_number" formControlName="mobile_numberhospital" type="tel" placeholder="Enter mobile number" />
+      <label for="mobile_number">Mobile Number:</label>
+      <input id="mobile_number" formControlName="mobile_number_hospital" type="tel" placeholder="Enter mobile number" />
 
-      <label for="location">Headquarter Location:</label>
-      <input id="header_quarter_location" formControlName="headquarter_location" type="text"
+      <label for="head_quarter_location">Headquarter Location:</label>
+      <input id="head_quarter_location" formControlName="head_quarter_location" type="text"
         placeholder="Enter location" />
 
-      <label for="category">Hospital Category:</label>
+      <label for="kra_pin">KRA pin:</label>
+      <input id="kra_pin" formControlName="kra_pin" type="tel" placeholder="Enter Pin" />
+
+      <label for="hospital_category">Hospital Category:</label>
       <select id="hospital_category" formControlName="hospital_category">
         <option value="public">Public</option>
         <option value="private">Private</option>
@@ -46,40 +49,40 @@
       <div class="input-group">
 
         <div class="label-group">
-          <label for="firstName">First Name:</label>
+          <label for="first_name">First Name:</label>
           <input id="first_name" formControlName="first_name" type="text" placeholder="Enter first name" />
         </div>
         <div class="label-group">
-          <label for="secondName">Second Name:</label>
+          <label for="second_name">Second Name:</label>
           <input id="second_name" formControlName="second_name" type="text" placeholder="Enter second name" />
         </div>
       </div>
 
       <div class="input-group">
         <div class="label-group">
-          <label for="username">Username:</label>
+          <label for="user_name">Username:</label>
           <input id="user_name" formControlName="user_name" type="text" placeholder="Enter username" />
         </div>
         <div class="label-group">
-          <label for="lastName">Last Name:</label>
+          <label for="last_name">Last Name:</label>
           <input id="last_name" formControlName="last_name" type="text" placeholder="Enter last name" />
         </div>
       </div>
 
       <div class="input-group">
         <div class="label-group">
-          <label for="adminEmail">Email:</label>
+          <label for="email">Email:</label>
           <input id="email" formControlName="email" type="email" placeholder="Enter email" />
         </div>
         <div class="label-group">
-          <label for="adminMobile">Mobile Number:</label>
+          <label for="mobile_number">Mobile Number:</label>
           <input id="mobile_number" formControlName="mobile_number" type="tel" placeholder="Enter mobile number" />
         </div>
       </div>
 
       <div class="input-group">
         <div class="label-group">
-          <label for="nationalId">National ID:</label>
+          <label for="national_id">National ID:</label>
           <input id="national_id" formControlName="national_id" type="text" placeholder="Enter national ID" />
         </div>
     

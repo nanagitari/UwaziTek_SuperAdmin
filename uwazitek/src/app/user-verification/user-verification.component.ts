@@ -5,11 +5,10 @@ import { forkJoin } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-verification',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './user-verification.component.html',
-  styleUrls: ['./user-verification.component.css'],
+    selector: 'app-user-verification',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './user-verification.component.html',
+    styleUrls: ['./user-verification.component.css']
 })
 export class UserVerificationComponent implements OnInit {
   users: any[] = []; // All users fetched from backend

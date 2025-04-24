@@ -5,8 +5,7 @@
       <p class="breadcrumbs">Insurance <span>/ Add New</span></p>
     </div>
 
-    <input type="text" class="search-bar" placeholder="Search here ...">
-
+    
     <div class="notification-area">
       <img src="assets/icons/notifications_blue.svg" alt="">
     </div>
@@ -26,13 +25,19 @@
       <input id="email_address" formControlName="email_address" type="email" placeholder="Enter email address" />
 
       <label for="mobile">Mobile Number:</label>
-      <input id="mobile_number" formControlName="mobile_numberinsurance" type="tel" placeholder="Enter mobile number" />
+      <input id="mobile_number" formControlName="mobile_number_insurance" type="tel" placeholder="Enter mobile number" />
 
       <label for="location">Headquarter Location:</label>
-      <input id="header_quarter_location" formControlName="headquarter_location" type="text"
+      <input id="header_quarter_location" formControlName="head_quarter_location" type="text"
         placeholder="Enter location" />
 
+
+        <label for="kra_pin">KRA pin:</label>
+        <input id="kra_pin" formControlName="kra_pin" type="tel" placeholder="Enter Pin" />  
+
     </div>
+     
+
 
     <!-- Step 2: Hospital Admin Registration -->
     <div *ngIf="currentStep === 2">

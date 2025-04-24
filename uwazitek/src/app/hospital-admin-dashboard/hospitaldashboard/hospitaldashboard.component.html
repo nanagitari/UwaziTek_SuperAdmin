@@ -9,21 +9,21 @@
               <p>Main Menu</p>
               <ul class="sidebar-menu">
                   <li [class.active-nav]="usertype === 'hospitalhome'" (click)="addActive('hospitalhome')">
-                      <img src="assets/icons/dashboard_blue.svg" class="menu-icon" />
+                      <img src="assets/icons/dashboard_white.png" class="menu-icon" />
                       <a class="menu-link" (click)="onclick('hospitalhome')">Dashboard</a>
                   </li>
                   <li [class.active]="activeDropdown==='pre-request'"
                       (click)="toggleDropdown('pre-request')" id="dropdown-parent">
       <div class="main-link">
-          <img src="assets/icons/hospital.svg" class="menu-icon">
+          <img src="assets/icons/hospital_white.png" class="menu-icon">
            <a class="menu-link" (click)="onclick('pre-request')">Pre-Authorization</a>
       </div>
          <ul class="dropdown-menu"
            [style.display]="activeDropdown === 'pre-request' ? 'flex' : 'none'">
-          <li [class.active-nav]="usertype==='overview-request'"
+          <!--<li [class.active-nav]="usertype==='overview-request'"
               (click)="addActive('overview-request')">
               <a class="menu-link" (click)="onclick('overview-request')">Overview</a>
-           </li>
+           </li>-->
           <li [class.active-nav]="usertype==='pre-request'"
               (click)="addActive('pre-request')">
             <a class="menu-link" (click)="onclick('pre-request')">Send Request</a>
@@ -33,7 +33,7 @@
 <li [class.active]="activeDropdown==='claims'"
       (click)="toggleDropdown('claims')" id="dropdown-parent">
   <div class="main-link">
-       <img src="assets/icons/insurance.svg" class="menu-icon">
+       <img src="assets/icons/insurance_white.png" class="menu-icon">
         <a class="menu-link" (click)="onclick('claims')">Claims</a>
            </div>
            <ul class="dropdown-menu"
@@ -42,14 +42,14 @@
                (click)="addActive('overview-claims')">
                <a class="menu-link" (click)="onclick('overview-claims')">Overview</a>
            </li>
-           <li [class.active-nav]="usertype==='upload-invoice'"
-               (click)="addActive('upload-invoice')">
-               <a class="menu-link" (click)="onclick('upload-invoice')">Upload Invoice</a>
+           <li [class.active-nav]="usertype==='claims'"
+               (click)="addActive('claims')">
+               <a class="menu-link" (click)="onclick('claims')">Upload Invoice</a>
            </li>
        </ul>
  </li>
    <li [class.active-nav]="usertype==='hopsital-user'" (click)="addActive('hospital-user')">
-      <img src="assets/icons/reports.svg" class="menu-icon">
+      <img src="assets/icons/reports_white.png" class="menu-icon">
       <a class="menu-link" (click)="onclick('hospital-user')">Add Hospital User</a>
       </li>
   </ul>
@@ -59,15 +59,15 @@
   <p>Preferences</p>
   <ul class="sidebar-menu">
       <li [class.active-nav]="usertype==='settings'"(click)="addActive('settings')">
-           <img src="assets/icons/settings.svg" class="menu-icon">
+           <img src="assets/icons/settings_white.png" class="menu-icon">
       <a class="menu-link"(click)="onclick('settings')">Settings</a>
        </li>
       <li [class.active-nav]="usertype==='profile'"(click)="addActive('profile')">
-          <img src="assets/icons/profile.svg" class="menu-icon">
+          <img src="assets/icons/profile_white.png" class="menu-icon">
       <a class="menu-link" (click)="onclick('profile')">Profile</a>
       </li>
       <li [class.active-nav]="usertype==='helpcenter'" (click)="addActive('helpcenter')">
-        <img src="assets/icons/help.svg" class="menu-icon">
+        <img src="assets/icons/help_white.png" class="menu-icon">
        <a class="menu-link"(click)="onclick('helpcenter')">Help Center</a>
       </li>
   </ul>
@@ -82,7 +82,7 @@
           </div>
           <div class="logout-button">
               <a (click)="openLogoutDialog()">
-                  <img src="assets/icons/logout.svg">
+                  <img src="assets/icons/logout_white.png">
                   Logout</a>
           </div>
 
@@ -93,6 +93,7 @@
   <app-hospitalhome *ngIf="usertype==='hospitalhome'"></app-hospitalhome>
   <app-overview-request *ngIf="usertype==='overview-request'"></app-overview-request>
   <app-pre-request *ngIf="usertype==='pre-request'"></app-pre-request>
+  <app-claims *ngIf="usertype==='claims'"></app-claims>
   <app-overview-claims *ngIf="usertype==='overview-claims'"></app-overview-claims>
   <app-hospital-user *ngIf="usertype==='hospital-user'"></app-hospital-user>
   <app-logout-dialog *ngIf="usertype==='logout-dialog'"></app-logout-dialog>

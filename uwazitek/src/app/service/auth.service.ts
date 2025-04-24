@@ -7,7 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl: string = 'https://uwazi-api-3.onrender.com';
+  private apiUrl: string = 'https://uwazi-api.onrender.com';
   private TOKEN_KEY = 'authToken';
 
   constructor(private http: HttpClient) {}

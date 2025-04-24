@@ -1,72 +1,87 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-//import { InvoiceService } from '../../invoice.service';
-@Component({
-  selector: 'app-claims',
-  standalone: true,
-  imports: [CommonModule, DragDropModule ],
-  templateUrl: './claims.component.html',
-  styleUrl: './claims.component.css'
-})
-export class ClaimsComponent {
-  selectedFile: File | null = null;
-  fileURL: SafeResourceUrl | null = null;
- feedbackMessage: string | null = null;
-  invoiceService: any;
+import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ClaimsService } from '../../service/claims.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
-  constructor(private sanitizer: DomSanitizer) {}
+
+
+
+@Component({
+    selector: 'app-claims',
+    imports: [CommonModule,DragDropModule,FormsModule, ReactiveFormsModule],
+    templateUrl: './claims.component.html',
+    styleUrl: './claims.component.css'
+})
+export class ClaimsComponent implements OnInit {
+
+selectedFile: File | null = null;
+fileURL: SafeResourceUrl | null = null;
+feedbackMessage: string | null = null;
+invoiceService: any;
+claimsForm: FormGroup;
+
+constructor(private sanitizer: DomSanitizer, private formBuilder: FormBuilder, private claimsService: ClaimsService) {
+  this.claimsForm = this.formBuilder.group({
+      
+  invoice_number: ['', Validators.required],
+  insured_id: ['', Validators.required],
+  treatment_id: ['', Validators.required],
+  hospital_id: ['', Validators.required],
+  claim_narration: ['', Validators.required],
+  
+    });
+  }
+
+  ngOnInit(): void {}
 
   onFileSelected(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-      this.selectedFile = target.files[0];
-
-      // Check if the selected file is a PDF
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput?.files?.[0]) {
+      this.selectedFile = fileInput.files[0];
       if (this.selectedFile.type === 'application/pdf') {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(e.target?.result as string);
-        };
-        reader.readAsDataURL(this.selectedFile);
+        this.fileURL = URL.createObjectURL(this.selectedFile);
       } else {
-        alert('Please select a PDF document.');
-        this.selectedFile = null; // Reset selected file if it's not a PDF
-        this.fileURL = null; // Reset file URL
+        this.fileURL = null;
+        this.feedbackMessage = 'Only PDF files are supported for preview.';
       }
     }
   }
-//upload logic
-  uploadFile(): void {
-    if (this.selectedFile) {
-      const formData=new FormData();
-      formData.append('file',this.selectedFile);
-      this.invoiceService.uploadInvoice(formData,).subscribe(
-  (response: any)=>{
-    console.log('file uploaded successfully:',response);
-    this.feedbackMessage='Document successfully sent to insurance';
-    this.selectedFile =null;
-    this.fileURL =null;
-     // Clear the file input field
-     const fileInput: HTMLInputElement = document.querySelector('input[type="file"]')!;
-     fileInput.value = '';  // Clear the file input field
 
-
-   setTimeout(() => {
-        this.feedbackMessage = null;
-      }, 5000);
-    },
-    (error: any)=>{
-      console.error('error uploading file:',error);
-      this.feedbackMessage ='Failed to upload document';
-      setTimeout(() =>{
-        this.feedbackMessage =null;
-      },5000);
+  // Handle form submission
+  onSubmit(): void {
+    if (this.claimsForm.invalid) {
+      this.feedbackMessage = 'Please fill in all required fields.';
+      return;
     }
-);
-  }else{
-    alert('no file selected.');
+
+    if (!this.selectedFile) {
+      this.feedbackMessage = 'Please upload an invoice file.';
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('invoice_number', this.claimsForm.value.invoice_number);
+    formData.append('insured_id', this.claimsForm.value.insured_id);
+    formData.append('treatment_id', this.claimsForm.value.treatment_id);
+    formData.append('hospital_id', this.claimsForm.value.hospital_id);
+    formData.append('claim_narration', this.claimsForm.value.claim_narration);
+    formData.append('invoice_file', this.selectedFile);
+
+    this.claimsService.submitClaim(formData).subscribe(
+      (response: any) => {
+        this.feedbackMessage = 'Claim submitted successfully!';
+        this.claimsForm.reset();
+        this.selectedFile = null;
+        this.fileURL = null;
+      },
+      (error: any) => {
+        this.feedbackMessage = 'An error occurred while submitting the claim. Please try again.';
+        console.error(error);
+      }
+    );
   }
-}
 }

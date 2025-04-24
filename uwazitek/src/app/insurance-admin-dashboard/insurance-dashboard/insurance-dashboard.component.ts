@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AddUserComponent } from '../Users/add-user/add-user.component';
 import { RegisterCustomerComponent } from '../Users/register-customer/register-customer.component';
-import { PreRequestComponent } from '../pre-request/pre-request.component';
+import { ClaimReportsComponent } from '../../Main-Menu/reports/claim-reports/claim-reports.component';
 import { InsurancehomeComponent } from '../insurancehome/insurancehome.component';
 import { RouterModule,Routes } from '@angular/router';
 import { Router } from '@angular/router';
@@ -10,12 +10,12 @@ import { LogoutDialogComponent } from '../../dialog box/logout-dialog/logout-dia
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-insurance-dashboard',
-  standalone: true,
-  imports: [ RouterModule,CommonModule, AddUserComponent,
-     RegisterCustomerComponent,PreRequestComponent,InsurancehomeComponent],
-  templateUrl: './insurance-dashboard.component.html',
-  styleUrl: './insurance-dashboard.component.css'
+    selector: 'app-insurance-dashboard',
+    imports: [RouterModule, CommonModule, AddUserComponent,
+        RegisterCustomerComponent,
+        ClaimReportsComponent, InsurancehomeComponent],
+    templateUrl: './insurance-dashboard.component.html',
+    styleUrl: './insurance-dashboard.component.css'
 })
 export class InsuranceDashboardComponent {
   isDropdownclicked= false;

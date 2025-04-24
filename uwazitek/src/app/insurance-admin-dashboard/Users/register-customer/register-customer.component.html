@@ -1,1 +1,48 @@
-<p>register-customer works!</p>
+<div class="main-container">
+    <h2>Create Customer</h2>
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <div class="label-group">
+        <label for="first_name">First Name:</label>
+        <input id="first_name" formControlName="first_name" type="text" placeholder="Enter first name" />
+      </div>
+      <div class="label-group">
+        <label for="second_name">Second Name:</label>
+        <input id="second_name" formControlName="second_name" type="text" placeholder="Enter second name" />
+      </div>
+      <div class="label-group">
+        <label for="user_name">Username:</label>
+        <input id="user_name" formControlName="user_name" type="text" placeholder="Enter username" />
+      </div>
+      <div class="label-group">
+        <label for="last_name">Last Name:</label>
+        <input id="last_name" formControlName="last_name" type="text" placeholder="Enter last name" />
+      </div>
+      <div class="label-group">
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" placeholder="Enter email" />
+      </div>
+      <div class="label-group">
+        <label for="mobile_number">Mobile Number:</label>
+        <input id="mobile_number" formControlName="mobile_number" type="tel" placeholder="Enter mobile number" />
+      </div>
+      <div class="label-group">
+        <label for="national_id">National ID:</label>
+        <input id="national_id" formControlName="national_id" type="text" placeholder="Enter national ID" />
+      </div>
+      <div class="label-group">
+        <label for="dob">Date of Birth:</label>
+        <input id="dob" formControlName="dob" type="date" />
+      </div>
+      <div class="label-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" formControlName="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button type="submit" [disabled]="customerForm.invalid">Register</button>
+      </div>
+    </form>
+  </div>
+  

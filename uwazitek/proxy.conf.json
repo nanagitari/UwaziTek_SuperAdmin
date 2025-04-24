@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://uwazitek.onrender.com",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  

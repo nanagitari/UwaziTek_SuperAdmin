@@ -11,19 +11,19 @@ import { LogoutDialogComponent } from '../../dialog box/logout-dialog/logout-dia
 import { PreRequestComponent } from '../pre-request/pre-request.component';
 import { SettingsComponent } from '../../Preference/settings/settings.component';
 import { HelpcenterComponent } from '../../Preference/helpcenter/helpcenter.component';
+import { ClaimsComponent } from '../claims/claims.component';
 
 
 
 @Component({
-  selector: 'app-hospitaldashboard',
-  standalone: true,
-  imports: [RouterModule, CommonModule, HospitalhomeComponent,
-    HospitalUserComponent, OverviewRequestComponent,
-     OverviewClaimsComponent, LogoutDialogComponent, 
-     PreRequestComponent,
-    HelpcenterComponent,SettingsComponent ],
-  templateUrl: './hospitaldashboard.component.html',
-  styleUrls: ['./hospitaldashboard.component.css'] 
+    selector: 'app-hospitaldashboard',
+    imports: [RouterModule, CommonModule, HospitalhomeComponent,
+        HospitalUserComponent, OverviewRequestComponent,
+        OverviewClaimsComponent, LogoutDialogComponent,
+        PreRequestComponent,
+        HelpcenterComponent, SettingsComponent, ClaimsComponent],
+    templateUrl: './hospitaldashboard.component.html',
+    styleUrls: ['./hospitaldashboard.component.css']
 })
 export class HospitalDashboardComponent  {
   isDropdownclicked= false;

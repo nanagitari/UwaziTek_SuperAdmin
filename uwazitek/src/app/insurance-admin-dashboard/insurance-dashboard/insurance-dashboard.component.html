@@ -10,13 +10,13 @@
                 <p>Main Menu</p>
                 <ul class="sidebar-menu">
                     <li [class.active-nav]="usertype === 'insurancehome'" (click)="addActive('insurancehome')">
-                        <img src="assets/icons/dashboard_blue.svg" class="menu-icon" />
+                        <img src="assets/icons/dashboard_white.png" class="menu-icon" />
                         <a class="menu-link" (click)="onclick('insurancehome')">Dashboard</a>
                     </li>
                     <li [class.active]="activeDropdown==='Users'"
                         (click)="toggleDropdown('Users')" id="dropdown-parent">
         <div class="main-link">
-            <img src="assets/icons/hospital.svg" class="menu-icon">
+            <img src="assets/icons/hospital_white.png" class="menu-icon">
              <a class="menu-link" (click)="onclick('Users')">Users</a>
         </div>
            <ul class="dropdown-menu"
@@ -31,9 +31,9 @@
              </li>
            </ul>
   </li>
-     <li [class.active-nav]="usertype==='pre-request'" (click)="addActive('pre-request')">
-        <img src="assets/icons/reports.svg" class="menu-icon">
-        <a class="menu-link" (click)="onclick('pre-request')">Pre-request</a>
+     <li [class.active-nav]="usertype==='claim-reports'" (click)="addActive('claim-reports')">
+        <img src="assets/icons/reports_white.png" class="menu-icon">
+        <a class="menu-link" (click)="onclick('claim-reports')">Claim Report</a>
         </li>
     </ul>
   </div>
@@ -42,15 +42,15 @@
     <p>Preferences</p>
     <ul class="sidebar-menu">
         <li [class.active-nav]="usertype==='settings'"(click)="addActive('settings')">
-             <img src="assets/icons/settings.svg" class="menu-icon">
+             <img src="assets/icons/settings_white.png" class="menu-icon">
         <a class="menu-link"(click)="onclick('settings')">Settings</a>
          </li>
         <li [class.active-nav]="usertype==='profile'"(click)="addActive('profile')">
-            <img src="assets/icons/profile.svg" class="menu-icon">
+            <img src="assets/icons/profile_white.png" class="menu-icon">
         <a class="menu-link" (click)="onclick('profile')">Profile</a>
         </li>
         <li [class.active-nav]="usertype==='helpcenter'" (click)="addActive('helpcenter')">
-          <img src="assets/icons/help.svg" class="menu-icon">
+          <img src="assets/icons/help_white.png" class="menu-icon">
          <a class="menu-link"(click)="onclick('helpcenter')">Help Center</a>
         </li>
     </ul>
@@ -65,7 +65,7 @@
             </div>
             <div class="logout-button">
                 <a (click)="openLogoutDialog()">
-                    <img src="assets/icons/logout.svg">
+                    <img src="assets/icons/logout_white.png">
                     Logout</a>
             </div>
   
@@ -76,7 +76,7 @@
     <app-insurancehome *ngIf="usertype==='insurancehome'"></app-insurancehome>
     <app-add-user *ngIf="usertype==='add-user'"></app-add-user>
     <app-register-customer *ngIf="usertype==='register-customer'"></app-register-customer>
-    <app-pre-request *ngIf="usertype==='pre-request'"></app-pre-request>
+    <app-claim-reports *ngIf="usertype==='claim-reports'"></app-claim-reports>
 
     
   </div>

@@ -3,11 +3,10 @@ import { MatDialogRef,MAT_DIALOG_DATA,MatDialogActions,MatDialogContent } from '
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-confirm-delete-dialog',
-  standalone: true,
-  imports: [MatDialogActions,MatDialogContent,CommonModule],
-  templateUrl: './confirm-delete-dialog.component.html',
-  styleUrl: './confirm-delete-dialog.component.css'
+    selector: 'app-confirm-delete-dialog',
+    imports: [MatDialogActions, MatDialogContent, CommonModule],
+    templateUrl: './confirm-delete-dialog.component.html',
+    styleUrl: './confirm-delete-dialog.component.css'
 })
 export class ConfirmDeleteDialogComponent {
 

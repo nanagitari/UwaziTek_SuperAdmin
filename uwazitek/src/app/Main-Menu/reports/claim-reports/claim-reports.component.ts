@@ -1,19 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-claim-reports',
-  standalone: true,
-  imports: [ CommonModule],
-  templateUrl: './claim-reports.component.html',
-  styleUrl: './claim-reports.component.css'
+    selector: 'app-claim-reports',
+    imports: [CommonModule],
+    templateUrl: './claim-reports.component.html',
+    styleUrl: './claim-reports.component.css'
 })
-export class ClaimReportsComponent {
+export class ClaimReportsComponent implements OnInit {
+  fraudDetectionResults: any[] = [];
+  metadata: any = {};
+  overallStatus: string | null = null;
+
+constructor (private http: HttpClient){}
 
 
+ngOnInit(): void {
+  this.getFraudDetectionReport();
+}
+getFraudDetectionReport(): void {
+  const apiUrl = 'https://uwazitek.onrender.com/generate-report';
 
+  this.http.get<any>(apiUrl).subscribe({
+    next: (response) => {
+      this.fraudDetectionResults = response['Fraud Detection Results'];
+      this.metadata = response['Metadata'];
+      this.overallStatus = this.extractOverallStatus();
+    },
+    //console.log(response);
+    error: (error) => {
+      console.error('Error fetching fraud detection data:', error);
+    },
+  });
+}
 
-getBadgeClass(status: string): string {
+extractOverallStatus(): string | null {
+  const overallStatusEntry = this.fraudDetectionResults.find(
+    (result) => result.Description === 'Overall Status'
+  );
+  return overallStatusEntry ? overallStatusEntry['Fraud Category'] : null;
+}
+
+getFraudCategoryClass(status: string): string {
   switch (status) {
     case 'Fraud':
       return 'badge-red';

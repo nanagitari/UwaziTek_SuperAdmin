@@ -4,12 +4,11 @@ import { RouterModule,Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-logout-dialog',
-  standalone: true,
-  imports: [RouterModule, MatDialogModule,],
-  templateUrl: './logout-dialog.component.html',
-  styleUrl: './logout-dialog.component.css',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-logout-dialog',
+    imports: [RouterModule, MatDialogModule,],
+    templateUrl: './logout-dialog.component.html',
+    styleUrl: './logout-dialog.component.css',
+    encapsulation: ViewEncapsulation.None
 })
 export class LogoutDialogComponent {
   constructor(public dialogRef: MatDialogRef<LogoutDialogComponent>, private router:Router) {}

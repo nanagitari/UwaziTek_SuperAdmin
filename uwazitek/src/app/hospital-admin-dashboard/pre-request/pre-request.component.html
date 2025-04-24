@@ -1,89 +1,45 @@
 
 <div class="form-container">
     <h2>Patient Verification</h2>
-    <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <form  (ngSubmit)="onSubmit()" >
       
-      <!-- Insurance Provider -->
+      
       <div class="form-group">
-        <label for="insurance">Insurance Provider</label>
-        <select 
-          id="insurance" 
-          [(ngModel)]="formData.insurance_id" 
-          name="insurance_id" 
-          required 
-          #insurance="ngModel">
-          <option value="" disabled selected>Select Insurance</option>
-          <option *ngFor="let insurance of insurances" [value]="insurance.insurance_id">
-            {{ insurance.insurance_name }}
-          </option>
-        </select>
-        <div *ngIf="insurance.invalid && insurance.touched" class="error-message">
-          Insurance provider is required.
-        </div>
-      </div>
+        <!--<label for="customer_id">Patient's National ID:</label>
+        <input id="national_id" formControlName="customer_id" type="number" placeholder="Enter national id" />-->
   
-      <!-- Patient Full Name -->
-      <div class="form-group">
-        <label for="patientFullName">Patient Full Name</label>
+      <label for="patientFullName">Patient National Id</label>
         <input 
           type="text" 
-          id="patientFullName" 
-          [(ngModel)]="formData.patientFullName" 
-          name="patientFullName" 
+          id="NationalId" 
+          [(ngModel)]="formData.customer_id" 
+          name="NationalId" 
           required 
-          #patientName="ngModel">
-        <div *ngIf="patientName.invalid && patientName.touched" class="error-message">
-          Patient name is required.
-        </div>
+          #nationalId="ngModel">
+        <div *ngIf="nationalId.invalid && nationalId.touched" class="error-message">
+          Patient id is required.
+        </div> 
+      </div>
+  
+      <button type="submit" id="submit">Send Request</button>
+      
+      <div *ngIf="mappedData && mappedData.length > 0" class="response-data">
+        <h3>Request Details:</h3>
+        <ul>
+          <li *ngFor="let item of mappedData">
+            <strong>ID:</strong> {{ item.id }} |
+            <strong>Description:</strong> {{ item.description }} |
+            <strong>Status:</strong> {{ item.status }} |
+            <strong>Date:</strong> {{ item.date }}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="feedbackMessage" class="feedback-message">
+        {{ feedbackMessage }}
       </div>
       
-      <!-- Type of Patient -->
-      <div class="form-group">
-        <label for="typeOfPatient">Type of Patient</label>
-        <select 
-          id="typeOfPatient" 
-          [(ngModel)]="formData.typeOfPatient" 
-          name="typeOfPatient" 
-          required 
-          #typeOfPatient="ngModel">
-          <option value="" disabled selected>Select Type</option>
-          <option value="Inpatient">Inpatient</option>
-          <option value="Outpatient">Outpatient</option>
-        </select>
-        <div *ngIf="typeOfPatient.invalid && typeOfPatient.touched" class="error-message">
-          Please select the type of patient.
-        </div>
-      </div>
-  
-      <!-- Insurance Policy Number -->
-      <div class="form-group">
-        <label for="insurancePolicyNumber">Insurance Policy Number</label>
-        <input 
-          type="text" 
-          id="insurancePolicyNumber" 
-          [(ngModel)]="formData.policy_number" 
-          name="policy_number" 
-          required 
-          #insurancePolicyNumber="ngModel">
-        <div *ngIf="insurancePolicyNumber.invalid && insurancePolicyNumber.touched" class="error-message">
-          Insurance policy number is required.
-        </div>
-      </div>
-  
-      <!-- Submit Button -->
-      <div class="form-group">
-        <button 
-          type="submit" 
-          [disabled]="form.invalid">
-          Send Request
-        </button>
-      </div>
   
     </form>
   
-    <!-- Feedback Message -->
-    <div *ngIf="feedbackMessage" class="feedback-message">
-      <p>{{ feedbackMessage }}</p>
-    </div>
-  
+   
   </div>

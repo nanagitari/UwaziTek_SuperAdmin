@@ -6,11 +6,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-activity',
-  standalone: true,
-  imports: [CommonModule, ClaimReportsComponent, MatButtonModule,MatTabsModule],
-  templateUrl: './activity.component.html',
-  styleUrl: './activity.component.css'
+    selector: 'app-activity',
+    imports: [CommonModule, ClaimReportsComponent, MatButtonModule, MatTabsModule],
+    templateUrl: './activity.component.html',
+    styleUrl: './activity.component.css'
 })
 export class ActivityComponent {
 
